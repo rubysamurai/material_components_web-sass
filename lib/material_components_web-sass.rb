@@ -32,7 +32,7 @@ module MaterialComponentsWeb
         end
 
         def register_rails_engine
-          require 'material_design_lite/sass/engine'
+          require 'material_components_web/sass/engine'
           require 'autoprefixer-rails'
         end
 
