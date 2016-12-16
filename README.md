@@ -1,10 +1,13 @@
 # Material Components for the web (MDC-Web) for Sass
 
+[![Gem Version](https://badge.fury.io/rb/material_components_web-sass.svg)](http://badge.fury.io/rb/material_components_web-sass)
+[![Build Status](https://travis-ci.org/rubysamurai/material_components_web-sass.svg?branch=master)](https://travis-ci.org/rubysamurai/material_components_web-sass)
+
 > **Note:** MDC-Web is still in early stage of development. For production environment it is recommended to use previous version of MDC-Web called [Material Design Lite for Sass](https://github.com/rubysamurai/material_design_lite-sass) 
 
 Material Components for the web ([MDC-Web](https://github.com/material-components/material-components-web/)) enable a reliable development workflow to build web projects based on [Material Design](https://www.material.io/) system.
 
-`material_components_web-sass` is a Sass-powered version of MDC-Web for your Ruby applications. In addition to all of MDC-Web packages it includes [Material Icons](https://www.google.com/design/icons/), official icon set from Google, and [Roboto](https://www.google.com/fonts/specimen/Roboto) font, the recommended font for material design.
+`material_components_web-sass` is a Sass-powered version of MDC-Web for your Ruby applications. In addition to all of MDC-Web packages it includes [Material Icons](https://material.io/icons/), official icon set from Google, and [Roboto](https://fonts.google.com/specimen/Roboto) font, the recommended font for material design.
 
 ## Installation
 
