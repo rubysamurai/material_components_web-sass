@@ -1,6 +1,6 @@
 /*!
  Material Components for the web
- Copyright (c) 2016 Google Inc.
+ Copyright (c) 2017 Google Inc.
  License: Apache-2.0
 */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -74,39 +74,39 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var checkbox = _interopRequireWildcard(_checkbox);
 
-	var _iconToggle = __webpack_require__(7);
+	var _iconToggle = __webpack_require__(8);
 
 	var iconToggle = _interopRequireWildcard(_iconToggle);
 
-	var _radio = __webpack_require__(13);
+	var _radio = __webpack_require__(14);
 
 	var radio = _interopRequireWildcard(_radio);
 
-	var _ripple = __webpack_require__(8);
+	var _ripple = __webpack_require__(9);
 
 	var ripple = _interopRequireWildcard(_ripple);
 
-	var _drawer = __webpack_require__(15);
+	var _drawer = __webpack_require__(16);
 
 	var drawer = _interopRequireWildcard(_drawer);
 
-	var _textfield = __webpack_require__(20);
+	var _textfield = __webpack_require__(21);
 
 	var textfield = _interopRequireWildcard(_textfield);
 
-	var _snackbar = __webpack_require__(22);
+	var _snackbar = __webpack_require__(23);
 
 	var snackbar = _interopRequireWildcard(_snackbar);
 
-	var _menu = __webpack_require__(25);
+	var _menu = __webpack_require__(26);
 
 	var menu = _interopRequireWildcard(_menu);
 
-	var _select = __webpack_require__(30);
+	var _select = __webpack_require__(31);
 
 	var select = _interopRequireWildcard(_select);
 
-	var _autoInit = __webpack_require__(32);
+	var _autoInit = __webpack_require__(33);
 
 	var _autoInit2 = _interopRequireDefault(_autoInit);
 
@@ -417,7 +417,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _base = __webpack_require__(1);
 
-	var _foundation = __webpack_require__(5);
+	var _animation = __webpack_require__(5);
+
+	var _foundation = __webpack_require__(6);
 
 	var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -459,8 +461,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function getDefaultFoundation() {
 	      var _this2 = this;
 
-	      var ANIM_END_EVENT_NAME = _foundation2.default.strings.ANIM_END_EVENT_NAME;
-
 	      return new _foundation2.default({
 	        addClass: function addClass(className) {
 	          return _this2.root_.classList.add(className);
@@ -469,10 +469,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	          return _this2.root_.classList.remove(className);
 	        },
 	        registerAnimationEndHandler: function registerAnimationEndHandler(handler) {
-	          return _this2.root_.addEventListener(ANIM_END_EVENT_NAME, handler);
+	          return _this2.root_.addEventListener((0, _animation.getCorrectEventName)(window, 'animation'), handler);
 	        },
 	        deregisterAnimationEndHandler: function deregisterAnimationEndHandler(handler) {
-	          return _this2.root_.removeEventListener(ANIM_END_EVENT_NAME, handler);
+	          return _this2.root_.removeEventListener((0, _animation.getCorrectEventName)(window, 'animation'), handler);
 	        },
 	        registerChangeHandler: function registerChangeHandler(handler) {
 	          return _this2.nativeCb_.addEventListener('change', handler);
@@ -534,6 +534,138 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 5 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.getCorrectEventName = getCorrectEventName;
+	exports.getCorrectPropertyName = getCorrectPropertyName;
+	/**
+	 * Copyright 2016 Google Inc. All Rights Reserved.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 *      http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 */
+
+	var eventTypeMap = {
+	  animationstart: {
+	    noPrefix: 'animationstart',
+	    webkitPrefix: 'webkitAnimationStart'
+	  },
+	  animationend: {
+	    noPrefix: 'animationend',
+	    webkitPrefix: 'webkitAnimationEnd'
+	  },
+	  animationiteration: {
+	    noPrefix: 'animationiteration',
+	    webkitPrefix: 'webkitAnimationIteration'
+	  },
+	  transitionend: {
+	    noPrefix: 'transitionend',
+	    webkitPrefix: 'webkitTransitionEnd'
+	  }
+	};
+
+	var cssPropertyMap = {
+	  animation: {
+	    noPrefix: 'animation',
+	    webkitPrefix: '-webkit-animation'
+	  },
+	  transform: {
+	    noPrefix: 'transform',
+	    webkitPrefix: '-webkit-transform'
+	  },
+	  transition: {
+	    noPrefix: 'transition',
+	    webkitPrefix: '-webkit-transition'
+	  }
+	};
+
+	function hasProperShape(windowObj) {
+	  return windowObj.document !== undefined && typeof windowObj.document.createElement === 'function';
+	}
+
+	function eventFoundInMaps(eventType) {
+	  return eventType in eventTypeMap || eventType in cssPropertyMap;
+	}
+
+	// If 'animation' or 'transition' exist as style property, webkit prefix isn't necessary. Since we are unable to
+	// see the event types on the element, we must rely on the corresponding style properties.
+	function getJavaScriptEventName(eventType, map, el) {
+	  switch (eventType) {
+	    case 'animationstart':
+	    case 'animationend':
+	    case 'animationiteration':
+	      return 'animation' in el.style ? map[eventType].noPrefix : map[eventType].webkitPrefix;
+	    case 'transitionend':
+	      return 'transition' in el.style ? map[eventType].noPrefix : map[eventType].webkitPrefix;
+	    default:
+	      return map[eventType].noPrefix;
+	  }
+	}
+
+	// Helper function to determine browser prefix for CSS3 animation events
+	// and property names
+	//
+	// Parameters:
+	// windowObject: Object -- Contains Document with a `createElement()` method
+	// eventType: string -- The type of animation
+	//
+	// returns the value of the event as a string, prefixed if necessary.
+	// If proper arguments are not supplied, this function will return
+	// the property or event type without webkit prefix.
+	//
+	function getAnimationName(windowObj, eventType) {
+	  if (!hasProperShape(windowObj) || !eventFoundInMaps(eventType)) {
+	    return eventType;
+	  }
+
+	  var map = eventType in eventTypeMap ? eventTypeMap : cssPropertyMap;
+	  var el = windowObj.document.createElement('div');
+	  var eventName = '';
+
+	  if (map === eventTypeMap) {
+	    eventName = getJavaScriptEventName(eventType, map, el);
+	  } else {
+	    eventName = map[eventType].noPrefix in el.style ? map[eventType].noPrefix : map[eventType].webkitPrefix;
+	  }
+
+	  return eventName;
+	}
+
+	// Public functions to access getAnimationName() for JavaScript events or CSS
+	// property names.
+	//
+	// Parameters:
+	// windowObject: Object -- Contains Document with a `createElement()` method
+	// eventType: string -- The type of animation
+	//
+	// returns the value of the event as a string, prefixed if necessary.
+	// If proper arguments are not supplied, this function will return
+	// the property or event type without webkit prefix.
+	//
+	function getCorrectEventName(windowObj, eventType) {
+	  return getAnimationName(windowObj, eventType);
+	}
+
+	function getCorrectPropertyName(windowObj, eventType) {
+	  return getAnimationName(windowObj, eventType);
+	}
+
+/***/ },
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -548,7 +680,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _base = __webpack_require__(1);
 
-	var _constants = __webpack_require__(6);
+	var _constants = __webpack_require__(7);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -804,7 +936,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -844,14 +976,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 	var strings = exports.strings = {
-	  ANIM_END_EVENT_NAME: function () {
-	    var el = document.createElement('div');
-	    // NOTE: We can immediately assume that the prefix is 'webkit' in browsers that don't
-	    // support unprefixed animations since the only browsers up to two major versions back that
-	    // don't support unprefixed names are mobile Safari and Android native browser, both of
-	    // which use the 'webkit' prefix.
-	    return 'animation' in el.style ? 'animationend' : 'webkitAnimationEnd';
-	  }(),
 	  NATIVE_CONTROL_SELECTOR: '.' + ROOT + '__native-control',
 	  TRANSITION_STATE_INIT: 'init',
 	  TRANSITION_STATE_CHECKED: 'checked',
@@ -864,7 +988,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -882,9 +1006,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _base = __webpack_require__(1);
 
-	var _ripple = __webpack_require__(8);
+	var _ripple = __webpack_require__(9);
 
-	var _foundation = __webpack_require__(12);
+	var _foundation = __webpack_require__(13);
 
 	var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -1057,7 +1181,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}(_base.MDCComponent);
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1071,11 +1195,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _base = __webpack_require__(1);
 
-	var _foundation = __webpack_require__(9);
+	var _foundation = __webpack_require__(10);
 
 	var _foundation2 = _interopRequireDefault(_foundation);
 
-	var _util = __webpack_require__(11);
+	var _util = __webpack_require__(12);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1199,7 +1323,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}(_base.MDCComponent);
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1214,9 +1338,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _base = __webpack_require__(1);
 
-	var _constants = __webpack_require__(10);
+	var _animation = __webpack_require__(5);
 
-	var _util = __webpack_require__(11);
+	var _constants = __webpack_require__(11);
+
+	var _util = __webpack_require__(12);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1581,17 +1707,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	          top = _startPoint2.top;
 	      var _MDCRippleFoundation$7 = MDCRippleFoundation.strings,
 	          VAR_LEFT = _MDCRippleFoundation$7.VAR_LEFT,
-	          VAR_TOP = _MDCRippleFoundation$7.VAR_TOP,
-	          TRANSITION_END_EVENT = _MDCRippleFoundation$7.TRANSITION_END_EVENT,
-	          ANIMATION_END_EVENT = _MDCRippleFoundation$7.ANIMATION_END_EVENT;
+	          VAR_TOP = _MDCRippleFoundation$7.VAR_TOP;
 	      var _MDCRippleFoundation$8 = MDCRippleFoundation.cssClasses,
 	          BG_BOUNDED_ACTIVE_FILL = _MDCRippleFoundation$8.BG_BOUNDED_ACTIVE_FILL,
 	          FG_BOUNDED_ACTIVE_FILL = _MDCRippleFoundation$8.FG_BOUNDED_ACTIVE_FILL;
 
 	      this.adapter_.updateCssVariable(VAR_LEFT, left + 'px');
 	      this.adapter_.updateCssVariable(VAR_TOP, top + 'px');
-	      this.cancelBgBounded_ = (0, _util.animateWithClass)(this.adapter_, BG_BOUNDED_ACTIVE_FILL, TRANSITION_END_EVENT);
-	      this.cancelFgBounded_ = (0, _util.animateWithClass)(this.adapter_, FG_BOUNDED_ACTIVE_FILL, ANIMATION_END_EVENT);
+	      this.cancelBgBounded_ = (0, _util.animateWithClass)(this.adapter_, BG_BOUNDED_ACTIVE_FILL, (0, _animation.getCorrectEventName)(window, 'transitionend'));
+	      this.cancelFgBounded_ = (0, _util.animateWithClass)(this.adapter_, FG_BOUNDED_ACTIVE_FILL, (0, _animation.getCorrectEventName)(window, 'animationend'));
 	    }
 	  }, {
 	    key: 'destroy',
@@ -1696,7 +1820,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = MDCRippleFoundation;
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1746,15 +1870,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  VAR_TOP: '--' + ROOT + '-top',
 	  VAR_XF_ORIGIN_X: '--' + ROOT + '-xfo-x',
 	  VAR_XF_ORIGIN_Y: '--' + ROOT + '-xfo-y',
-	  VAR_FG_APPROX_XF: '--' + ROOT + '-fg-approx-xf',
-	  ANIMATION_END_EVENT: function () {
-	    var d = document.createElement('div');
-	    return 'webkitAnimation' in d.style ? 'webkitAnimationEnd' : 'animationend';
-	  }(),
-	  TRANSITION_END_EVENT: function () {
-	    var d = document.createElement('div');
-	    return 'webkitTransition' in d.style ? 'webkitTransitionEnd' : 'transitionend';
-	  }()
+	  VAR_FG_APPROX_XF: '--' + ROOT + '-fg-approx-xf'
 	};
 
 	var numbers = exports.numbers = {
@@ -1766,7 +1882,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1850,7 +1966,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2094,7 +2210,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2112,9 +2228,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _base = __webpack_require__(1);
 
-	var _ripple = __webpack_require__(8);
+	var _ripple = __webpack_require__(9);
 
-	var _foundation = __webpack_require__(14);
+	var _foundation = __webpack_require__(15);
 
 	var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -2256,7 +2372,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}(_base.MDCComponent);
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2367,7 +2483,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = MDCRadioFoundation;
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2376,7 +2492,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _temporary = __webpack_require__(16);
+	var _temporary = __webpack_require__(17);
 
 	Object.defineProperty(exports, 'MDCTemporaryDrawer', {
 	  enumerable: true,
@@ -2392,7 +2508,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2406,11 +2522,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _base = __webpack_require__(1);
 
-	var _foundation = __webpack_require__(17);
+	var _foundation = __webpack_require__(18);
 
 	var _foundation2 = _interopRequireDefault(_foundation);
 
-	var _util = __webpack_require__(19);
+	var _util = __webpack_require__(20);
 
 	var util = _interopRequireWildcard(_util);
 
@@ -2558,7 +2674,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}(_base.MDCComponent);
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2573,7 +2689,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _base = __webpack_require__(1);
 
-	var _constants = __webpack_require__(18);
+	var _constants = __webpack_require__(19);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -2607,11 +2723,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: 'strings',
 	    get: function get() {
 	      return _constants.strings;
-	    }
-	  }, {
-	    key: 'numbers',
-	    get: function get() {
-	      return _constants.numbers;
 	    }
 	  }, {
 	    key: 'defaultAdapter',
@@ -2893,7 +3004,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = MDCTemporaryDrawerFoundation;
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2933,7 +3044,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3055,7 +3166,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3071,7 +3182,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _base = __webpack_require__(1);
 
-	var _foundation = __webpack_require__(21);
+	var _foundation = __webpack_require__(22);
 
 	var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -3238,7 +3349,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}(_base.MDCComponent);
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3464,7 +3575,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = MDCTextfieldFoundation;
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3478,9 +3589,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _base = __webpack_require__(1);
 
-	var _foundation = __webpack_require__(23);
+	var _foundation = __webpack_require__(24);
 
 	var _foundation2 = _interopRequireDefault(_foundation);
+
+	var _animation = __webpack_require__(5);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3526,7 +3639,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var _this2 = this;
 
 	      var _MDCSnackbarFoundatio = _foundation2.default.strings,
-	          TRANS_END_EVENT_NAME = _MDCSnackbarFoundatio.TRANS_END_EVENT_NAME,
 	          TEXT_SELECTOR = _MDCSnackbarFoundatio.TEXT_SELECTOR,
 	          ACTION_BUTTON_SELECTOR = _MDCSnackbarFoundatio.ACTION_BUTTON_SELECTOR;
 
@@ -3570,10 +3682,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	          return getActionButton().removeEventListener('click', handler);
 	        },
 	        registerTransitionEndHandler: function registerTransitionEndHandler(handler) {
-	          return _this2.root_.addEventListener(TRANS_END_EVENT_NAME, handler);
+	          return _this2.root_.addEventListener((0, _animation.getCorrectEventName)(window, 'transitionend'), handler);
 	        },
 	        deregisterTransitionEndHandler: function deregisterTransitionEndHandler(handler) {
-	          return _this2.root_.removeEventListener(TRANS_END_EVENT_NAME, handler);
+	          return _this2.root_.removeEventListener((0, _animation.getCorrectEventName)(window, 'transitionend'), handler);
 	        }
 	      });
 	    }
@@ -3588,7 +3700,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}(_base.MDCComponent);
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3603,7 +3715,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _base = __webpack_require__(1);
 
-	var _constants = __webpack_require__(24);
+	var _constants = __webpack_require__(25);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -3798,7 +3910,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = MDCSnackbarFoundation;
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3835,15 +3947,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 	var strings = exports.strings = {
-	  get TRANS_END_EVENT_NAME() {
-	    var el = document.createElement('div');
-	    // NOTE: We can immediately assume that the prefix is 'webkit' in browsers that don't
-	    // support unprefixed transtions since the only browsers up to two major versions back that
-	    // don't support unprefixed names are mobile Safari and Android native browser, both of
-	    // which use the 'webkit' prefix.
-	    return 'transition' in el.style ? 'transitionend' : 'webkitTransitionEnd';
-	  },
-
 	  get TEXT_SELECTOR() {
 	    return '.' + cssClasses.TEXT;
 	  },
@@ -3862,7 +3965,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 25 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3871,7 +3974,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _simple = __webpack_require__(26);
+	var _simple = __webpack_require__(27);
 
 	Object.defineProperty(exports, 'MDCSimpleMenu', {
 	  enumerable: true,
@@ -3887,7 +3990,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3901,11 +4004,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _base = __webpack_require__(1);
 
-	var _foundation = __webpack_require__(27);
+	var _foundation = __webpack_require__(28);
 
 	var _foundation2 = _interopRequireDefault(_foundation);
 
-	var _util = __webpack_require__(29);
+	var _util = __webpack_require__(30);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4107,7 +4210,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}(_base.MDCComponent);
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4122,9 +4225,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _base = __webpack_require__(1);
 
-	var _constants = __webpack_require__(28);
+	var _constants = __webpack_require__(29);
 
-	var _util = __webpack_require__(29);
+	var _util = __webpack_require__(30);
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -4647,7 +4750,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = MDCSimpleMenuFoundation;
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4705,7 +4808,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4843,7 +4946,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4857,9 +4960,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _base = __webpack_require__(1);
 
-	var _menu = __webpack_require__(25);
+	var _menu = __webpack_require__(26);
 
-	var _foundation = __webpack_require__(31);
+	var _foundation = __webpack_require__(32);
 
 	var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -5068,7 +5171,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}(_base.MDCComponent);
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5402,7 +5505,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = MDCSelectFoundation;
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports) {
 
 	'use strict';
