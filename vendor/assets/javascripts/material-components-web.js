@@ -316,7 +316,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }]);
 
-	  function MDCComponent(root, foundation) {
+	  function MDCComponent(root) {
+	    var foundation = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.getDefaultFoundation();
+
 	    _classCallCheck(this, MDCComponent);
 
 	    this.root_ = root;
@@ -326,7 +328,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    this.initialize.apply(this, args);
-	    this.foundation_ = foundation === undefined ? this.getDefaultFoundation() : foundation;
+	    this.foundation_ = foundation;
 	    this.foundation_.init();
 	    this.initialSyncWithDOM();
 	  }
@@ -1457,6 +1459,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _this.cancelBgBounded_ = function () {};
 	    _this.cancelFgBounded_ = function () {};
 	    _this.cancelFgUnbounded_ = function () {};
+	    _this.unboundedCoords_ = {
+	      left: 0,
+	      top: 0
+	    };
 	    return _this;
 	  }
 
@@ -1586,8 +1592,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	          VAR_XF_ORIGIN_X = _MDCRippleFoundation$3.VAR_XF_ORIGIN_X,
 	          VAR_XF_ORIGIN_Y = _MDCRippleFoundation$3.VAR_XF_ORIGIN_Y;
 
-	      this.adapter_.updateCssVariable(VAR_XF_ORIGIN_X, left + 'px');
-	      this.adapter_.updateCssVariable(VAR_XF_ORIGIN_Y, top + 'px');
+	      this.adapter_.updateCssVariable(VAR_XF_ORIGIN_X, left - this.unboundedCoords_.left + 'px');
+	      this.adapter_.updateCssVariable(VAR_XF_ORIGIN_Y, top - this.unboundedCoords_.top + 'px');
 	      this.adapter_.addClass(FG_UNBOUNDED_ACTIVATION);
 	    }
 	  }, {
@@ -1806,10 +1812,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.adapter_.updateCssVariable(VAR_FG_UNBOUNDED_TRANSFORM_DURATION, this.xfDuration_ + 'ms');
 
 	      if (this.adapter_.isUnbounded()) {
-	        var left = -(fgSize / 2) + this.frame_.width / 2;
-	        var top = -(fgSize / 2) + this.frame_.height / 2;
-	        this.adapter_.updateCssVariable(VAR_LEFT, left + 'px');
-	        this.adapter_.updateCssVariable(VAR_TOP, top + 'px');
+	        this.unboundedCoords_ = {
+	          left: Math.round(-(fgSize / 2) + this.frame_.width / 2),
+	          top: Math.round(-(fgSize / 2) + this.frame_.height / 2)
+	        };
+	        this.adapter_.updateCssVariable(VAR_LEFT, this.unboundedCoords_.left + 'px');
+	        this.adapter_.updateCssVariable(VAR_TOP, this.unboundedCoords_.top + 'px');
 	      }
 	    }
 	  }]);
@@ -3280,11 +3288,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	        registerInputBlurHandler: function registerInputBlurHandler(handler) {
 	          return _this3.input_.addEventListener('blur', handler);
 	        },
+	        registerInputInputHandler: function registerInputInputHandler(handler) {
+	          return _this3.input_.addEventListener('input', handler);
+	        },
+	        registerInputKeydownHandler: function registerInputKeydownHandler(handler) {
+	          return _this3.input_.addEventListener('keydown', handler);
+	        },
 	        deregisterInputFocusHandler: function deregisterInputFocusHandler(handler) {
 	          return _this3.input_.removeEventListener('focus', handler);
 	        },
 	        deregisterInputBlurHandler: function deregisterInputBlurHandler(handler) {
 	          return _this3.input_.removeEventListener('blur', handler);
+	        },
+	        deregisterInputInputHandler: function deregisterInputInputHandler(handler) {
+	          return _this3.input_.removeEventListener('input', handler);
+	        },
+	        deregisterInputKeydownHandler: function deregisterInputKeydownHandler(handler) {
+	          return _this3.input_.removeEventListener('keydown', handler);
 	        },
 	        getNativeInput: function getNativeInput() {
 	          return _this3.input_;
@@ -3429,6 +3449,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        deregisterInputFocusHandler: function deregisterInputFocusHandler() /* handler: EventListener */{},
 	        registerInputBlurHandler: function registerInputBlurHandler() /* handler: EventListener */{},
 	        deregisterInputBlurHandler: function deregisterInputBlurHandler() /* handler: EventListener */{},
+	        registerInputInputHandler: function registerInputInputHandler() /* handler: EventListener */{},
+	        deregisterInputInputHandler: function deregisterInputInputHandler() /* handler: EventListener */{},
+	        registerInputKeydownHandler: function registerInputKeydownHandler() /* handler: EventListener */{},
+	        deregisterInputKeydownHandler: function deregisterInputKeydownHandler() /* handler: EventListener */{},
 	        setHelptextAttr: function setHelptextAttr() /* name: string, value: string */{},
 	        removeHelptextAttr: function removeHelptextAttr() /* name: string, value: string */{},
 	        getNativeInput: function getNativeInput() {
@@ -3446,11 +3470,18 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    var _this = _possibleConstructorReturn(this, (MDCTextfieldFoundation.__proto__ || Object.getPrototypeOf(MDCTextfieldFoundation)).call(this, _extends(MDCTextfieldFoundation.defaultAdapter, adapter)));
 
+	    _this.receivedUserInput_ = false;
 	    _this.inputFocusHandler_ = function () {
 	      return _this.activateFocus_();
 	    };
 	    _this.inputBlurHandler_ = function () {
 	      return _this.deactivateFocus_();
+	    };
+	    _this.inputInputHandler_ = function () {
+	      return _this.autoCompleteFocus_();
+	    };
+	    _this.inputKeydownHandler_ = function () {
+	      return _this.receivedUserInput_ = true;
 	    };
 	    return _this;
 	  }
@@ -3461,6 +3492,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.adapter_.addClass(MDCTextfieldFoundation.cssClasses.UPGRADED);
 	      this.adapter_.registerInputFocusHandler(this.inputFocusHandler_);
 	      this.adapter_.registerInputBlurHandler(this.inputBlurHandler_);
+	      this.adapter_.registerInputInputHandler(this.inputInputHandler_);
+	      this.adapter_.registerInputKeydownHandler(this.inputKeydownHandler_);
 	    }
 	  }, {
 	    key: 'destroy',
@@ -3468,6 +3501,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.adapter_.removeClass(MDCTextfieldFoundation.cssClasses.UPGRADED);
 	      this.adapter_.deregisterInputFocusHandler(this.inputFocusHandler_);
 	      this.adapter_.deregisterInputBlurHandler(this.inputBlurHandler_);
+	      this.adapter_.deregisterInputInputHandler(this.inputInputHandler_);
+	      this.adapter_.deregisterInputKeydownHandler(this.inputKeydownHandler_);
 	    }
 	  }, {
 	    key: 'activateFocus_',
@@ -3479,6 +3514,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.adapter_.addClass(FOCUSED);
 	      this.adapter_.addClassToLabel(LABEL_FLOAT_ABOVE);
 	      this.showHelptext_();
+	    }
+	  }, {
+	    key: 'autoCompleteFocus_',
+	    value: function autoCompleteFocus_() {
+	      if (!this.receivedUserInput_) {
+	        this.activateFocus_();
+	      }
 	    }
 	  }, {
 	    key: 'showHelptext_',
@@ -3501,6 +3543,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.adapter_.removeClass(FOCUSED);
 	      if (!input.value) {
 	        this.adapter_.removeClassFromLabel(LABEL_FLOAT_ABOVE);
+	        this.receivedUserInput_ = false;
 	      }
 	      if (isValid) {
 	        this.adapter_.removeClass(INVALID);
