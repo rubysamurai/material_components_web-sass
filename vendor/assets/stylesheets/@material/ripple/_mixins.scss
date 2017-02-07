@@ -1,22 +1,21 @@
-/**
- * Copyright 2016 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+//
+// Copyright 2016 Google Inc. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
 
+@import "@material/animation/variables";
 @import "@material/theme/variables";
 @import "./keyframes";
-@import "./variables";
 
 @function mdc-ripple-default-config_() {
   @return (
@@ -50,7 +49,7 @@
   $opacity: map-get($config, opacity);
   $theme-style: map-get($config, theme-style);
 
-  /* stylelint-disable at-rule-empty-line-before, block-closing-brace-newline-after */
+  // stylelint-disable at-rule-empty-line-before, block-closing-brace-newline-after
   @if ($theme-style) {
     $theme-value: map-get($mdc-theme-property-values, $theme-style);
     $css-var: var(--mdc-theme-#{$theme-style}, $theme-value);
@@ -66,7 +65,7 @@
   } @else {
     background-color: rgba($base-color, $opacity);
   }
-  /* stylelint-enable at-rule-empty-line-before, block-closing-brace-newline-after */
+  // stylelint-enable at-rule-empty-line-before, block-closing-brace-newline-after
 }
 
 @mixin mdc-ripple-bg-base_($config) {
@@ -79,7 +78,7 @@
   left: calc(50% - #{$radius});
   width: $radius * 2;
   height: $radius * 2;
-  transform: scale(1);
+  transform: scale(var(--mdc-ripple-fg-scale));
   transition: opacity 200ms linear;
   border-radius: 50%;
   opacity: 0;
@@ -90,7 +89,7 @@
   $config: map-merge(mdc-ripple-default-config_(), $config);
   $pseudo: map-get($config, pseudo);
 
-  /* stylelint-disable at-rule-empty-line-before, block-closing-brace-newline-after */
+  // stylelint-disable at-rule-empty-line-before, block-closing-brace-newline-after
   @if ($pseudo) {
     &#{$pseudo} {
       @include mdc-ripple-bg-base_($config);
@@ -100,7 +99,7 @@
   } @else {
     @include mdc-ripple-bg-base_($config);
   }
-  /* stylelint-enable at-rule-empty-line-before, block-closing-brace-newline-after */
+  // stylelint-enable at-rule-empty-line-before, block-closing-brace-newline-after
 
   &.mdc-ripple-upgraded--background-active#{$pseudo} {
     opacity: .99999;
@@ -130,6 +129,8 @@
   @include mdc-ripple-color_($config);
 
   position: absolute;
+  top: 0;
+  left: 0;
   width: var(--mdc-ripple-fg-size);
   height: var(--mdc-ripple-fg-size);
   transform: scale(0);
@@ -143,7 +144,7 @@
   $config: map-merge(mdc-ripple-default-config_(), $config);
   $pseudo: map-get($config, pseudo);
 
-  /* stylelint-disable at-rule-empty-line-before, block-closing-brace-newline-after */
+  // stylelint-disable at-rule-empty-line-before, block-closing-brace-newline-after
   @if ($pseudo) {
     &#{$pseudo} {
       @include mdc-ripple-fg-base_($config);
@@ -153,27 +154,25 @@
   } @else {
     @include mdc-ripple-fg-base_($config);
   }
-  /* stylelint-enable at-rule-empty-line-before, block-closing-brace-newline-after */
+  // stylelint-enable at-rule-empty-line-before, block-closing-brace-newline-after
 
   &:not(.mdc-ripple-upgraded--unbounded)#{$pseudo} {
-    top: calc(var(--mdc-ripple-top) - var(--mdc-ripple-fg-size) / 2);
-    left: calc(var(--mdc-ripple-left) - var(--mdc-ripple-fg-size) / 2);
     transform-origin: center center;
   }
 
   &.mdc-ripple-upgraded--unbounded#{$pseudo} {
     top: var(--mdc-ripple-top);
     left: var(--mdc-ripple-left);
-    transform-origin: var(--mdc-ripple-xfo-x) var(--mdc-ripple-xfo-y);
+    transform-origin: center center;
   }
 
   &.mdc-ripple-upgraded--foreground-bounded-active-fill#{$pseudo} {
     animation-fill-mode: forwards;
-    animation: 800ms mdc-ripple-fg-radius-in, 400ms mdc-ripple-fg-opacity-out;
+    animation: 300ms mdc-ripple-fg-radius-in, 400ms mdc-ripple-fg-opacity-out;
   }
 
   &.mdc-ripple-upgraded--unbounded.mdc-ripple-upgraded--foreground-unbounded-activation#{$pseudo} {
-    transform: scale(1);
+    transform: scale(var(--mdc-ripple-fg-scale));
     transition:
       opacity 110ms linear,
       transform var(--mdc-ripple-fg-unbounded-transform-duration) linear 80ms;
@@ -183,6 +182,6 @@
   &.mdc-ripple-upgraded--unbounded.mdc-ripple-upgraded--foreground-unbounded-deactivation#{$pseudo} {
     animation:
       mdc-ripple-fg-unbounded-opacity-deactivate var(--mdc-ripple-fg-unbounded-opacity-duration) linear,
-      mdc-ripple-fg-unbounded-transform-deactivate var(--mdc-ripple-fg-unbounded-transform-duration) $mdc-ripple-easing-fn;
+      mdc-ripple-fg-unbounded-transform-deactivate var(--mdc-ripple-fg-unbounded-transform-duration) $mdc-animation-fast-out-slow-in-timing-function;
   }
 }
