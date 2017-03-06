@@ -1611,6 +1611,9 @@ var MDCSelect = function (_MDCComponent) {
         getTextForOptionAtIndex: function getTextForOptionAtIndex(index) {
           return _this2.options[index].textContent;
         },
+        getValueForOptionAtIndex: function getValueForOptionAtIndex(index) {
+          return _this2.options[index].id || _this2.options[index].textContent;
+        },
         setAttrForOptionAtIndex: function setAttrForOptionAtIndex(index, attr, value) {
           return _this2.options[index].setAttribute(attr, value);
         },
@@ -1646,6 +1649,11 @@ var MDCSelect = function (_MDCComponent) {
       if (this.root_.getAttribute('aria-disabled') === 'true') {
         this.disabled = true;
       }
+    }
+  }, {
+    key: 'value',
+    get: function get() {
+      return this.foundation_.getValue();
     }
   }, {
     key: 'options',
@@ -3643,7 +3651,11 @@ var MDCSimpleMenuFoundation = function (_MDCFoundation) {
           );
         },
         setTransformOrigin: function setTransformOrigin() /* origin: string */{},
-        setPosition: function setPosition() /* position: { top: string, right: string, bottom: string, left: string } */{}
+        setPosition: function setPosition() /* position: { top: string, right: string, bottom: string, left: string } */{},
+        getAccurateTime: function getAccurateTime() {
+          return (/* number */0
+          );
+        }
       };
     }
   }]);
@@ -3763,7 +3775,7 @@ var MDCSimpleMenuFoundation = function (_MDCFoundation) {
     value: function animationLoop_() {
       var _this2 = this;
 
-      var time = window.performance.now();
+      var time = this.adapter_.getAccurateTime();
       var _MDCSimpleMenuFoundat3 = MDCSimpleMenuFoundation.numbers,
           TRANSITION_DURATION_MS = _MDCSimpleMenuFoundat3.TRANSITION_DURATION_MS,
           TRANSITION_X1 = _MDCSimpleMenuFoundat3.TRANSITION_X1,
@@ -3825,7 +3837,7 @@ var MDCSimpleMenuFoundation = function (_MDCFoundation) {
     value: function animateMenu_() {
       var _this3 = this;
 
-      this.startTime_ = window.performance.now();
+      this.startTime_ = this.adapter_.getAccurateTime();
       this.startScaleX_ = this.scaleX_;
       this.startScaleY_ = this.scaleY_;
 
@@ -4229,6 +4241,9 @@ var MDCSimpleMenu = function (_MDCComponent) {
           _this2.root_.style.right = 'right' in position ? position.right : null;
           _this2.root_.style.top = 'top' in position ? position.top : null;
           _this2.root_.style.bottom = 'bottom' in position ? position.bottom : null;
+        },
+        getAccurateTime: function getAccurateTime() {
+          return window.performance.now();
         }
       });
     }
@@ -4790,6 +4805,7 @@ var MDCRippleFoundation = function (_MDCFoundation) {
           VAR_FG_UNBOUNDED_TRANSFORM_DURATION = _MDCRippleFoundation$4.VAR_FG_UNBOUNDED_TRANSFORM_DURATION,
           VAR_FG_APPROX_XF = _MDCRippleFoundation$4.VAR_FG_APPROX_XF;
 
+
       this.adapter_.updateCssVariable(VAR_FG_APPROX_XF, 'scale(' + approxCurScale + ')');
       this.adapter_.updateCssVariable(VAR_FG_UNBOUNDED_OPACITY_DURATION, opacityDuration + 'ms');
       this.adapter_.updateCssVariable(VAR_FG_UNBOUNDED_TRANSFORM_DURATION, transformDuration + 'ms');
@@ -5071,6 +5087,10 @@ var MDCSelectFoundation = function (_MDCFoundation) {
           return (/* index: number */ /* string */''
           );
         },
+        getValueForOptionAtIndex: function getValueForOptionAtIndex() {
+          return (/* index: number */ /* string */''
+          );
+        },
         setAttrForOptionAtIndex: function setAttrForOptionAtIndex() /* index: number, attr: string, value: string */{},
         rmAttrForOptionAtIndex: function rmAttrForOptionAtIndex() /* index: number, attr: string */{},
         getOffsetTopForOptionAtIndex: function getOffsetTopForOptionAtIndex() {
@@ -5142,6 +5162,11 @@ var MDCSelectFoundation = function (_MDCFoundation) {
       this.adapter_.deregisterInteractionHandler('keyup', this.displayViaKeyboardHandler_);
       this.adapter_.deregisterMenuInteractionHandler('MDCSimpleMenu:selected', this.selectionHandler_);
       this.adapter_.deregisterMenuInteractionHandler('MDCSimpleMenu:cancel', this.cancelHandler_);
+    }
+  }, {
+    key: 'getValue',
+    value: function getValue() {
+      return this.selectedIndex_ >= 0 ? this.adapter_.getValueForOptionAtIndex(this.selectedIndex_) : '';
     }
   }, {
     key: 'getSelectedIndex',
@@ -5339,17 +5364,9 @@ var cssClasses = {
 };
 
 var strings = {
-  get TEXT_SELECTOR() {
-    return '.' + cssClasses.TEXT;
-  },
-
-  get ACTION_WRAPPER_SELECTOR() {
-    return '.' + cssClasses.ACTION_WRAPPER;
-  },
-
-  get ACTION_BUTTON_SELECTOR() {
-    return '.' + cssClasses.ACTION_BUTTON;
-  }
+  TEXT_SELECTOR: '.' + cssClasses.TEXT,
+  ACTION_WRAPPER_SELECTOR: '.' + cssClasses.ACTION_WRAPPER,
+  ACTION_BUTTON_SELECTOR: '.' + cssClasses.ACTION_BUTTON
 };
 
 var numbers = {
@@ -5598,8 +5615,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var ROOT = 'mdc-textfield';
-
 var MDCTextfieldFoundation = function (_MDCFoundation) {
   _inherits(MDCTextfieldFoundation, _MDCFoundation);
 
@@ -5607,14 +5622,14 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
     key: 'cssClasses',
     get: function get() {
       return {
-        ROOT: ROOT,
-        UPGRADED: ROOT + '--upgraded',
-        DISABLED: ROOT + '--disabled',
-        FOCUSED: ROOT + '--focused',
-        INVALID: ROOT + '--invalid',
-        HELPTEXT_PERSISTENT: ROOT + '-helptext--persistent',
-        HELPTEXT_VALIDATION_MSG: ROOT + '-helptext--validation-msg',
-        LABEL_FLOAT_ABOVE: ROOT + '__label--float-above'
+        ROOT: 'mdc-textfield',
+        UPGRADED: 'mdc-textfield--upgraded',
+        DISABLED: 'mdc-textfield--disabled',
+        FOCUSED: 'mdc-textfield--focused',
+        INVALID: 'mdc-textfield--invalid',
+        HELPTEXT_PERSISTENT: 'mdc-textfield-helptext--persistent',
+        HELPTEXT_VALIDATION_MSG: 'mdc-textfield-helptext--validation-msg',
+        LABEL_FLOAT_ABOVE: 'mdc-textfield__label--float-above'
       };
     }
   }, {
@@ -5688,6 +5703,11 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
       this.adapter_.registerInputBlurHandler(this.inputBlurHandler_);
       this.adapter_.registerInputInputHandler(this.inputInputHandler_);
       this.adapter_.registerInputKeydownHandler(this.inputKeydownHandler_);
+
+      // Ensure label does not collide with any pre-filled value.
+      if (this.getNativeInput_().value) {
+        this.adapter_.addClassToLabel(MDCTextfieldFoundation.cssClasses.LABEL_FLOAT_ABOVE);
+      }
     }
   }, {
     key: 'destroy',
