@@ -7414,6 +7414,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 // Register all components
 __WEBPACK_IMPORTED_MODULE_13__material_auto_init__["a" /* default */].register('MDCCheckbox', __WEBPACK_IMPORTED_MODULE_1__material_checkbox__["MDCCheckbox"]);
 __WEBPACK_IMPORTED_MODULE_13__material_auto_init__["a" /* default */].register('MDCDialog', __WEBPACK_IMPORTED_MODULE_7__material_dialog__["MDCDialog"]);
+__WEBPACK_IMPORTED_MODULE_13__material_auto_init__["a" /* default */].register('MDCPersistentDrawer', __WEBPACK_IMPORTED_MODULE_8__material_drawer__["MDCPersistentDrawer"]);
 __WEBPACK_IMPORTED_MODULE_13__material_auto_init__["a" /* default */].register('MDCTemporaryDrawer', __WEBPACK_IMPORTED_MODULE_8__material_drawer__["MDCTemporaryDrawer"]);
 __WEBPACK_IMPORTED_MODULE_13__material_auto_init__["a" /* default */].register('MDCRipple', __WEBPACK_IMPORTED_MODULE_6__material_ripple__["MDCRipple"]);
 __WEBPACK_IMPORTED_MODULE_13__material_auto_init__["a" /* default */].register('MDCGridList', __WEBPACK_IMPORTED_MODULE_3__material_grid_list__["MDCGridList"]);
