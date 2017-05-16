@@ -1,3 +1,12 @@
+## 0.11.0 (2017-05-16)
+
+- Update assets to match upstream version
+
+Library version: 
+
+- Material Components for the web v0.11.0
+- Material Icons v3.0.0
+
 ## 0.10.0.1 (2017-05-10)
 
 - Improvement: Update autoprefixer dependency
