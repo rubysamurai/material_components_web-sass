@@ -61,6 +61,7 @@ Individual Sass components can be included like this:
 @import "@material/select/mdc-select";
 @import "@material/snackbar/mdc-snackbar";
 @import "@material/switch/mdc-switch";
+@import "@material/tabs/mdc-tabs";
 @import "@material/textfield/mdc-textfield";
 @import "@material/theme/mdc-theme";
 @import "@material/toolbar/mdc-toolbar";
