@@ -54,6 +54,7 @@ Individual Sass components can be included like this:
 @import "@material/grid-list/mdc-grid-list";
 @import "@material/icon-toggle/mdc-icon-toggle";
 @import "@material/layout-grid/mdc-layout-grid";
+@import "@material/linear-progress/mdc-linear-progress";
 @import "@material/list/mdc-list";
 @import "@material/menu/mdc-menu";
 @import "@material/radio/mdc-radio";
