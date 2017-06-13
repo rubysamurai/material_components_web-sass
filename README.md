@@ -60,6 +60,7 @@ Individual Sass components can be included like this:
 @import "@material/radio/mdc-radio";
 @import "@material/ripple/mdc-ripple";
 @import "@material/select/mdc-select";
+@import "@material/slider/mdc-slider";
 @import "@material/snackbar/mdc-snackbar";
 @import "@material/switch/mdc-switch";
 @import "@material/tabs/mdc-tabs";
