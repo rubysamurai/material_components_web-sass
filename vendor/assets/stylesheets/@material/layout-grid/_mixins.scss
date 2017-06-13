@@ -83,7 +83,7 @@
 
     @each $size in map-keys($mdc-layout-grid-columns) {
       @include mdc-layout-grid-media-query_($size) {
-        grid-template-columns: repeat(map-get($mdc-layout-grid-columns, $size), minmax(0, 1fr));
+        grid-template-columns: repeat(map-get($mdc-layout-grid-columns, $size), minmax(0, 1fr))
       }
     }
   }
