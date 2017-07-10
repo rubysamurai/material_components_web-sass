@@ -56,7 +56,7 @@
         // Span classes.
         // stylelint-disable max-nesting-depth
         @at-root .mdc-layout-grid__cell--span-#{$span},
-          .mdc-layout-grid__cell--span-#{$span}-#{$size}.mdc-layout-grid__cell--span-#{$span}-#{$size} {
+          .mdc-layout-grid__cell--span-#{$span}-#{$size} {
           @include mdc-layout-grid-cell-span_($size, $span, $gutter);
         }
         // stylelint-enable max-nesting-depth
@@ -97,4 +97,13 @@
   }
 }
 
+.mdc-layout-grid--align-left {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.mdc-layout-grid--align-right {
+  margin-right: 0;
+  margin-left: auto;
+}
 // postcss-bem-linter: end
