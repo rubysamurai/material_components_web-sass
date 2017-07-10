@@ -1,3 +1,12 @@
+## 0.15.0 (2017-07-10)
+
+- Update assets to match upstream version
+
+Library version: 
+
+- Material Components for the web v0.15.0
+- Material Icons v3.0.0
+
 ## 0.14.0.1 (2017-06-28)
 
 - Fix elevation bug
