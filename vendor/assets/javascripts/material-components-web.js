@@ -993,14 +993,56 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  * limitations under the License.
  */
 
-/** @private {boolean|undefined} */
+/**
+ * Stores result from supportsCssVariables to avoid redundant processing to detect CSS custom variable support.
+ * @private {boolean|undefined}
+ */
+var supportsCssVariables_ = void 0;
+
+/**
+ * Stores result from applyPassive to avoid redundant processing to detect passive event listener support.
+ * @private {boolean|undefined}
+ */
 var supportsPassive_ = void 0;
 
 /**
  * @param {!Window} windowObj
+ * @return {boolean}
+ */
+function detectEdgePseudoVarBug(windowObj) {
+  // Detect versions of Edge with buggy var() support
+  // See: https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/11495448/
+  var document = windowObj.document;
+  var className = 'test-edge-css-var';
+  var styleNode = document.createElement('style');
+  document.head.appendChild(styleNode);
+  var sheet = styleNode.sheet;
+  // Internet Explorer 11 requires indices to always be specified to insertRule
+  sheet.insertRule(':root { --' + className + ': 1px solid #000; }', 0);
+  sheet.insertRule('.' + className + ' { visibility: hidden; }', 1);
+  sheet.insertRule('.' + className + '::before { border: var(--' + className + '); }', 2);
+  var node = document.createElement('div');
+  node.className = className;
+  document.body.appendChild(node);
+  // Bug exists if ::before style ends up propagating to the parent element
+  var hasPseudoVarBug = windowObj.getComputedStyle(node).borderTopStyle === 'solid';
+  node.remove();
+  styleNode.remove();
+  return hasPseudoVarBug;
+}
+
+/**
+ * @param {!Window} windowObj
+ * @param {boolean=} forceRefresh
  * @return {boolean|undefined}
  */
 function supportsCssVariables(windowObj) {
+  var forceRefresh = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+  if (typeof supportsCssVariables_ === 'boolean' && !forceRefresh) {
+    return supportsCssVariables_;
+  }
+
   var supportsFunctionPresent = windowObj.CSS && typeof windowObj.CSS.supports === 'function';
   if (!supportsFunctionPresent) {
     return;
@@ -1010,7 +1052,13 @@ function supportsCssVariables(windowObj) {
   // See: https://bugs.webkit.org/show_bug.cgi?id=154669
   // See: README section on Safari
   var weAreFeatureDetectingSafari10plus = windowObj.CSS.supports('(--css-vars: yes)') && windowObj.CSS.supports('color', '#00000000');
-  return explicitlySupportsCssVars || weAreFeatureDetectingSafari10plus;
+
+  if (explicitlySupportsCssVars || weAreFeatureDetectingSafari10plus) {
+    supportsCssVariables_ = !detectEdgePseudoVarBug(windowObj);
+  } else {
+    supportsCssVariables_ = false;
+  }
+  return supportsCssVariables_;
 }
 
 //
@@ -4253,7 +4301,7 @@ module.exports = function(el) {
   var candidate, candidateIndex;
   for (var i = 0, l = candidates.length; i < l; i++) {
     candidate = candidates[i];
-    candidateIndex = candidate.tabIndex;
+    candidateIndex = parseInt(candidate.getAttribute('tabindex'), 10) || candidate.tabIndex;
 
     if (
       candidateIndex < 0
@@ -9008,20 +9056,13 @@ var MDCSelectFoundation = function (_MDCFoundation) {
 
       var focusIndex = this.selectedIndex_ < 0 ? 0 : this.selectedIndex_;
 
-      var _computeMenuStylesFor = this.computeMenuStylesForOpenAtIndex_(focusIndex),
-          left = _computeMenuStylesFor.left,
-          top = _computeMenuStylesFor.top,
-          transformOrigin = _computeMenuStylesFor.transformOrigin;
-
-      this.adapter_.setMenuElStyle('left', left);
-      this.adapter_.setMenuElStyle('top', top);
-      this.adapter_.setMenuElStyle('transform-origin', transformOrigin);
+      this.setMenuStylesForOpenAtIndex_(focusIndex);
       this.adapter_.addClass(OPEN);
       this.adapter_.openMenu(focusIndex);
     }
   }, {
-    key: 'computeMenuStylesForOpenAtIndex_',
-    value: function computeMenuStylesForOpenAtIndex_(index) {
+    key: 'setMenuStylesForOpenAtIndex_',
+    value: function setMenuStylesForOpenAtIndex_(index) {
       var innerHeight = this.adapter_.getWindowInnerHeight();
 
       var _adapter_$computeBoun = this.adapter_.computeBoundingRect(),
@@ -9036,20 +9077,17 @@ var MDCSelectFoundation = function (_MDCFoundation) {
       this.adapter_.rmMenuElAttr('aria-hidden');
 
       var adjustedTop = top - itemOffsetTop;
-      var adjustedHeight = menuHeight - itemOffsetTop;
       var overflowsTop = adjustedTop < 0;
-      var overflowsBottom = adjustedTop + adjustedHeight > innerHeight;
+      var overflowsBottom = adjustedTop + menuHeight > innerHeight;
       if (overflowsTop) {
         adjustedTop = 0;
       } else if (overflowsBottom) {
-        adjustedTop = Math.max(0, adjustedTop - adjustedHeight);
-      }
-
-      return {
-        left: left + 'px',
-        top: adjustedTop + 'px',
-        transformOrigin: 'center ' + itemOffsetTop + 'px'
+        adjustedTop = Math.max(0, innerHeight - menuHeight);
       };
+
+      this.adapter_.setMenuElStyle('left', left + 'px');
+      this.adapter_.setMenuElStyle('top', adjustedTop + 'px');
+      this.adapter_.setMenuElStyle('transform-origin', 'center ' + itemOffsetTop + 'px');
     }
   }, {
     key: 'close_',
