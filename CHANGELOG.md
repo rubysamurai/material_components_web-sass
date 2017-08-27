@@ -1,3 +1,12 @@
+## 0.19.0 (2017-08-27)
+
+- Update assets to match upstream version
+
+Library version: 
+
+- Material Components for the web v0.19.0
+- Material Icons v3.0.0
+
 ## 0.18.1 (2017-08-24)
 
 - Update assets to match upstream version
