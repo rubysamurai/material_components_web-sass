@@ -1039,21 +1039,17 @@ function detectEdgePseudoVarBug(windowObj) {
   // Detect versions of Edge with buggy var() support
   // See: https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/11495448/
   var document = windowObj.document;
-  var className = 'test-edge-css-var';
-  var styleNode = document.createElement('style');
-  document.head.appendChild(styleNode);
-  var sheet = styleNode.sheet;
-  // Internet Explorer 11 requires indices to always be specified to insertRule
-  sheet.insertRule(':root { --' + className + ': 1px solid #000; }', 0);
-  sheet.insertRule('.' + className + ' { visibility: hidden; }', 1);
-  sheet.insertRule('.' + className + '::before { border: var(--' + className + '); }', 2);
   var node = document.createElement('div');
-  node.className = className;
+  node.className = 'mdc-ripple-surface--test-edge-var-bug';
   document.body.appendChild(node);
-  // Bug exists if ::before style ends up propagating to the parent element
-  var hasPseudoVarBug = windowObj.getComputedStyle(node).borderTopStyle === 'solid';
+
+  // The bug exists if ::before style ends up propagating to the parent element.
+  // Additionally, getComputedStyle returns null in iframes with display: "none" in Firefox,
+  // but Firefox is known to support CSS custom properties correctly.
+  // See: https://bugzilla.mozilla.org/show_bug.cgi?id=548397
+  var computedStyle = windowObj.getComputedStyle(node);
+  var hasPseudoVarBug = computedStyle !== null && computedStyle.borderTopStyle === 'solid';
   node.remove();
-  styleNode.remove();
   return hasPseudoVarBug;
 }
 
@@ -11872,6 +11868,11 @@ var MDCTextfield = function (_MDCComponent) {
     set: function set(disabled) {
       this.foundation_.setDisabled(disabled);
     }
+  }, {
+    key: 'valid',
+    set: function set(valid) {
+      this.foundation_.setValid(valid);
+    }
   }], [{
     key: 'attachTo',
     value: function attachTo(root) {
@@ -11983,6 +11984,7 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
     _this.inputKeydownHandler_ = function () {
       return _this.receivedUserInput_ = true;
     };
+    _this.useCustomValidityChecking_ = false;
     return _this;
   }
 
@@ -12039,27 +12041,34 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
     value: function deactivateFocus_() {
       var _MDCTextfieldFoundati2 = MDCTextfieldFoundation.cssClasses,
           FOCUSED = _MDCTextfieldFoundati2.FOCUSED,
-          INVALID = _MDCTextfieldFoundati2.INVALID,
           LABEL_FLOAT_ABOVE = _MDCTextfieldFoundati2.LABEL_FLOAT_ABOVE;
 
       var input = this.getNativeInput_();
-      var isValid = input.checkValidity();
 
       this.adapter_.removeClass(FOCUSED);
       if (!input.value && !this.isBadInput_()) {
         this.adapter_.removeClassFromLabel(LABEL_FLOAT_ABOVE);
         this.receivedUserInput_ = false;
       }
+      if (!this.useCustomValidityChecking_) {
+        this.changeValidity_(input.checkValidity());
+      }
+    }
+  }, {
+    key: 'changeValidity_',
+    value: function changeValidity_(isValid) {
+      var INVALID = MDCTextfieldFoundation.cssClasses.INVALID;
+
       if (isValid) {
         this.adapter_.removeClass(INVALID);
       } else {
         this.adapter_.addClass(INVALID);
       }
-      this.updateHelptextOnDeactivation_(isValid);
+      this.updateHelptext_(isValid);
     }
   }, {
-    key: 'updateHelptextOnDeactivation_',
-    value: function updateHelptextOnDeactivation_(isValid) {
+    key: 'updateHelptext_',
+    value: function updateHelptext_(isValid) {
       var _MDCTextfieldFoundati3 = MDCTextfieldFoundation.cssClasses,
           HELPTEXT_PERSISTENT = _MDCTextfieldFoundati3.HELPTEXT_PERSISTENT,
           HELPTEXT_VALIDATION_MSG = _MDCTextfieldFoundati3.HELPTEXT_VALIDATION_MSG;
@@ -12121,6 +12130,12 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
         disabled: false,
         badInput: false
       };
+    }
+  }, {
+    key: 'setValid',
+    value: function setValid(isValid) {
+      this.useCustomValidityChecking_ = true;
+      this.changeValidity_(isValid);
     }
   }]);
 
