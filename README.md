@@ -42,7 +42,6 @@ Restart Rails web server if it was running.
 Individual Sass components can be included like this:
 
 ```scss
-@import "@material/animation/mdc-animation";
 @import "@material/button/mdc-button";
 @import "@material/card/mdc-card";
 @import "@material/checkbox/mdc-checkbox";

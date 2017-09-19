@@ -2052,6 +2052,23 @@ var registry = Object.create(null);
 
 var CONSOLE_WARN = console.warn.bind(console);
 
+function _emit(evtType, evtData) {
+  var shouldBubble = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+  var evt = void 0;
+  if (typeof CustomEvent === 'function') {
+    evt = new CustomEvent(evtType, {
+      detail: evtData,
+      bubbles: shouldBubble
+    });
+  } else {
+    evt = document.createEvent('CustomEvent');
+    evt.initCustomEvent(evtType, shouldBubble, false, evtData);
+  }
+
+  document.dispatchEvent(evt);
+}
+
 /**
  * Auto-initializes all mdc components on a page.
  */
@@ -2085,6 +2102,8 @@ function mdcAutoInit() {
       configurable: true
     });
   }
+
+  _emit('MDCAutoInit:End', {});
 }
 
 mdcAutoInit.register = function (componentName, Ctor) {
@@ -9749,7 +9768,7 @@ var MDCSliderFoundation = function (_MDCFoundation) {
       this.layout();
       // At last step, provide a reasonable default value to discrete slider
       if (this.isDiscrete_ && this.getStep() == 0) {
-        this.setStep(1);
+        this.step_ = 1;
       }
     }
   }, {
@@ -11491,7 +11510,7 @@ var MDCTabBarScrollerFoundation = function (_MDCFoundation) {
         }
       }
 
-      this.scrollToTabAtIndex_(scrollTargetIndex);
+      this.scrollToTabAtIndex(scrollTargetIndex);
     }
   }, {
     key: 'scrollForward',
@@ -11523,7 +11542,7 @@ var MDCTabBarScrollerFoundation = function (_MDCFoundation) {
         }
       }
 
-      this.scrollToTabAtIndex_(scrollTargetIndex);
+      this.scrollToTabAtIndex(scrollTargetIndex);
     }
   }, {
     key: 'layout',
@@ -11588,8 +11607,8 @@ var MDCTabBarScrollerFoundation = function (_MDCFoundation) {
       this.updateIndicatorEnabledStates_();
     }
   }, {
-    key: 'scrollToTabAtIndex_',
-    value: function scrollToTabAtIndex_(index) {
+    key: 'scrollToTabAtIndex',
+    value: function scrollToTabAtIndex(index) {
       var _this5 = this;
 
       var scrollTargetOffsetLeft = this.adapter_.getComputedLeftForTabAtIndex(index);
