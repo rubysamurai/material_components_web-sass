@@ -35,7 +35,7 @@
 }
 
 @mixin mdc-fab-container-color($color) {
-  @include mdc-theme-prop(background-color, $color);
+  @include mdc-theme-prop(background-color, $color, $edgeOptOut: true);
 }
 
 @mixin mdc-fab-ink-color($color) {
@@ -73,6 +73,11 @@ $mdc-fab-icon-enter-duration_: 180ms;
   -moz-appearance: none;
   -webkit-appearance: none;
   overflow: hidden;
+
+  &:hover,
+  &:focus {
+    @include mdc-elevation(8);
+  }
 
   &:active {
     @include mdc-elevation(12);

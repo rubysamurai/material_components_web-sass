@@ -89,6 +89,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MDCFoundation", function() { return __WEBPACK_IMPORTED_MODULE_0__foundation__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MDCComponent", function() { return __WEBPACK_IMPORTED_MODULE_1__component__["a"]; });
 /**
+ * @license
  * Copyright 2016 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -119,6 +120,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
+ * @license
  * Copyright 2016 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -222,6 +224,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
+ * @license
  * Copyright 2016 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -396,6 +399,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
+ * @license
  * Copyright 2017 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -428,6 +432,7 @@ var MDCSelectionControlState = void 0;
 /**
  * @record
  */
+
 var MDCSelectionControl = function () {
   function MDCSelectionControl() {
     _classCallCheck(this, MDCSelectionControl);
@@ -443,6 +448,8 @@ var MDCSelectionControl = function () {
   return MDCSelectionControl;
 }();
 
+
+
 /***/ }),
 /* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -451,9 +458,9 @@ var MDCSelectionControl = function () {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MDCRipple", function() { return MDCRipple; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__material_base_component__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__adapter__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__adapter__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__foundation__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util__ = __webpack_require__(7);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MDCRippleFoundation", function() { return __WEBPACK_IMPORTED_MODULE_2__foundation__["a"]; });
 /* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "util", function() { return __WEBPACK_IMPORTED_MODULE_3__util__; });
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -465,6 +472,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -485,12 +493,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
-
-
 /**
  * @extends MDCComponent<!MDCRippleFoundation>
  */
+
 var MDCRipple = function (_MDCComponent) {
   _inherits(MDCRipple, _MDCComponent);
 
@@ -648,6 +654,7 @@ var MDCRipple = function (_MDCComponent) {
  * @record
  */
 
+
 var RippleCapableSurface = function RippleCapableSurface() {
   _classCallCheck(this, RippleCapableSurface);
 };
@@ -669,15 +676,18 @@ RippleCapableSurface.prototype.unbounded;
  */
 RippleCapableSurface.prototype.disabled;
 
+
+
 /***/ }),
 /* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return transformStyleProperties; });
-/* harmony export (immutable) */ __webpack_exports__["a"] = getCorrectEventName;
-/* harmony export (immutable) */ __webpack_exports__["b"] = getCorrectPropertyName;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getCorrectEventName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getCorrectPropertyName; });
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -815,6 +825,8 @@ function getCorrectPropertyName(windowObj, eventType) {
   return getAnimationName(windowObj, eventType);
 }
 
+
+
 /***/ }),
 /* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -848,162 +860,13 @@ function getCorrectPropertyName(windowObj, eventType) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * Copyright 2016 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-/* eslint no-unused-vars: [2, {"args": "none"}] */
-
-/**
- * Adapter for MDC Ripple. Provides an interface for managing
- * - classes
- * - dom
- * - CSS variables
- * - position
- * - dimensions
- * - scroll position
- * - event handlers
- * - unbounded, active and disabled states
- *
- * Additionally, provides type information for the adapter to the Closure
- * compiler.
- *
- * Implement this adapter for your framework of choice to delegate updates to
- * the component in your framework of choice. See architecture documentation
- * for more details.
- * https://github.com/material-components/material-components-web/blob/master/docs/architecture.md
- *
- * @record
- */
-var MDCRippleAdapter = function () {
-  function MDCRippleAdapter() {
-    _classCallCheck(this, MDCRippleAdapter);
-  }
-
-  _createClass(MDCRippleAdapter, [{
-    key: "browserSupportsCssVars",
-
-    /** @return {boolean} */
-    value: function browserSupportsCssVars() {}
-
-    /** @return {boolean} */
-
-  }, {
-    key: "isUnbounded",
-    value: function isUnbounded() {}
-
-    /** @return {boolean} */
-
-  }, {
-    key: "isSurfaceActive",
-    value: function isSurfaceActive() {}
-
-    /** @return {boolean} */
-
-  }, {
-    key: "isSurfaceDisabled",
-    value: function isSurfaceDisabled() {}
-
-    /** @param {string} className */
-
-  }, {
-    key: "addClass",
-    value: function addClass(className) {}
-
-    /** @param {string} className */
-
-  }, {
-    key: "removeClass",
-    value: function removeClass(className) {}
-
-    /**
-     * @param {string} evtType
-     * @param {!Function} handler
-     */
-
-  }, {
-    key: "registerInteractionHandler",
-    value: function registerInteractionHandler(evtType, handler) {}
-
-    /**
-     * @param {string} evtType
-     * @param {!Function} handler
-     */
-
-  }, {
-    key: "deregisterInteractionHandler",
-    value: function deregisterInteractionHandler(evtType, handler) {}
-
-    /**
-     * @param {!Function} handler
-     */
-
-  }, {
-    key: "registerResizeHandler",
-    value: function registerResizeHandler(handler) {}
-
-    /**
-     * @param {!Function} handler
-     */
-
-  }, {
-    key: "deregisterResizeHandler",
-    value: function deregisterResizeHandler(handler) {}
-
-    /**
-     * @param {string} varName
-     * @param {?number|string} value
-     */
-
-  }, {
-    key: "updateCssVariable",
-    value: function updateCssVariable(varName, value) {}
-
-    /** @return {!ClientRect} */
-
-  }, {
-    key: "computeBoundingRect",
-    value: function computeBoundingRect() {}
-
-    /** @return {{x: number, y: number}} */
-
-  }, {
-    key: "getWindowPageOffset",
-    value: function getWindowPageOffset() {}
-  }]);
-
-  return MDCRippleAdapter;
-}();
-
-/* unused harmony default export */ var _unused_webpack_default_export = (MDCRippleAdapter);
-
-/***/ }),
-/* 8 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (immutable) */ __webpack_exports__["supportsCssVariables"] = supportsCssVariables;
-/* harmony export (immutable) */ __webpack_exports__["applyPassive"] = applyPassive;
-/* harmony export (immutable) */ __webpack_exports__["getMatchesProperty"] = getMatchesProperty;
-/* harmony export (immutable) */ __webpack_exports__["getNormalizedEventCoords"] = getNormalizedEventCoords;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "supportsCssVariables", function() { return supportsCssVariables; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "applyPassive", function() { return applyPassive; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getMatchesProperty", function() { return getMatchesProperty; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getNormalizedEventCoords", function() { return getNormalizedEventCoords; });
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -1058,6 +921,7 @@ function detectEdgePseudoVarBug(windowObj) {
  * @param {boolean=} forceRefresh
  * @return {boolean|undefined}
  */
+
 function supportsCssVariables(windowObj) {
   var forceRefresh = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
@@ -1145,8 +1009,10 @@ function getNormalizedEventCoords(ev, pageOffset, clientRect) {
   return { x: normalizedX, y: normalizedY };
 }
 
+
+
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1265,17 +1131,18 @@ function restoreElementTabState(el) {
 }
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__simple__ = __webpack_require__(54);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MDCSimpleMenu", function() { return __WEBPACK_IMPORTED_MODULE_1__simple__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MDCSimpleMenuFoundation", function() { return __WEBPACK_IMPORTED_MODULE_1__simple__["b"]; });
 /* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "util", function() { return __WEBPACK_IMPORTED_MODULE_0__util__; });
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -1296,14 +1163,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (immutable) */ __webpack_exports__["getTransformPropertyName"] = getTransformPropertyName;
-/* harmony export (immutable) */ __webpack_exports__["clamp"] = clamp;
-/* harmony export (immutable) */ __webpack_exports__["bezierProgress"] = bezierProgress;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTransformPropertyName", function() { return getTransformPropertyName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clamp", function() { return clamp; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bezierProgress", function() { return bezierProgress; });
 /**
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
@@ -1461,6 +1328,159 @@ function solvePositionFromXValue_(xVal, x1, x2) {
   }
   return t;
 }
+
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * @license
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* eslint no-unused-vars: [2, {"args": "none"}] */
+
+/**
+ * Adapter for MDC Ripple. Provides an interface for managing
+ * - classes
+ * - dom
+ * - CSS variables
+ * - position
+ * - dimensions
+ * - scroll position
+ * - event handlers
+ * - unbounded, active and disabled states
+ *
+ * Additionally, provides type information for the adapter to the Closure
+ * compiler.
+ *
+ * Implement this adapter for your framework of choice to delegate updates to
+ * the component in your framework of choice. See architecture documentation
+ * for more details.
+ * https://github.com/material-components/material-components-web/blob/master/docs/architecture.md
+ *
+ * @record
+ */
+var MDCRippleAdapter = function () {
+  function MDCRippleAdapter() {
+    _classCallCheck(this, MDCRippleAdapter);
+  }
+
+  _createClass(MDCRippleAdapter, [{
+    key: "browserSupportsCssVars",
+
+    /** @return {boolean} */
+    value: function browserSupportsCssVars() {}
+
+    /** @return {boolean} */
+
+  }, {
+    key: "isUnbounded",
+    value: function isUnbounded() {}
+
+    /** @return {boolean} */
+
+  }, {
+    key: "isSurfaceActive",
+    value: function isSurfaceActive() {}
+
+    /** @return {boolean} */
+
+  }, {
+    key: "isSurfaceDisabled",
+    value: function isSurfaceDisabled() {}
+
+    /** @param {string} className */
+
+  }, {
+    key: "addClass",
+    value: function addClass(className) {}
+
+    /** @param {string} className */
+
+  }, {
+    key: "removeClass",
+    value: function removeClass(className) {}
+
+    /**
+     * @param {string} evtType
+     * @param {!Function} handler
+     */
+
+  }, {
+    key: "registerInteractionHandler",
+    value: function registerInteractionHandler(evtType, handler) {}
+
+    /**
+     * @param {string} evtType
+     * @param {!Function} handler
+     */
+
+  }, {
+    key: "deregisterInteractionHandler",
+    value: function deregisterInteractionHandler(evtType, handler) {}
+
+    /**
+     * @param {!Function} handler
+     */
+
+  }, {
+    key: "registerResizeHandler",
+    value: function registerResizeHandler(handler) {}
+
+    /**
+     * @param {!Function} handler
+     */
+
+  }, {
+    key: "deregisterResizeHandler",
+    value: function deregisterResizeHandler(handler) {}
+
+    /**
+     * @param {string} varName
+     * @param {?number|string} value
+     */
+
+  }, {
+    key: "updateCssVariable",
+    value: function updateCssVariable(varName, value) {}
+
+    /** @return {!ClientRect} */
+
+  }, {
+    key: "computeBoundingRect",
+    value: function computeBoundingRect() {}
+
+    /** @return {{x: number, y: number}} */
+
+  }, {
+    key: "getWindowPageOffset",
+    value: function getWindowPageOffset() {}
+  }]);
+
+  return MDCRippleAdapter;
+}();
+
+/* unused harmony default export */ var _unused_webpack_default_export = (MDCRippleAdapter);
 
 /***/ }),
 /* 12 */
@@ -1908,7 +1928,10 @@ var strings = {
   ARIA_HIDDEN: 'aria-hidden',
   ROLE: 'role',
   INPUT_SELECTOR: '.mdc-textfield__input',
-  LABEL_SELECTOR: '.mdc-textfield__label'
+  LABEL_SELECTOR: '.mdc-textfield__label',
+  ICON_SELECTOR: '.mdc-textfield__icon',
+  ICON_EVENT: 'MDCTextfield:icon',
+  BOTTOM_LINE_SELECTOR: '.mdc-textfield__bottom-line'
 };
 
 var cssClasses = {
@@ -1920,7 +1943,11 @@ var cssClasses = {
   HELPTEXT_PERSISTENT: 'mdc-textfield-helptext--persistent',
   HELPTEXT_VALIDATION_MSG: 'mdc-textfield-helptext--validation-msg',
   LABEL_FLOAT_ABOVE: 'mdc-textfield__label--float-above',
-  BOX: 'mdc-textfield--box'
+  LABEL_SHAKE: 'mdc-textfield__label--shake',
+  BOX: 'mdc-textfield--box',
+  TEXT_FIELD_ICON: 'mdc-textfield__icon',
+  TEXTAREA: 'mdc-textfield--textarea',
+  BOTTOM_LINE_ACTIVE: 'mdc-textfield__bottom-line--active'
 };
 
 /***/ }),
@@ -1938,7 +1965,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_grid_list__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_icon_toggle__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_linear_progress__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_menu__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_menu__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_radio__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__material_ripple__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__material_select__ = __webpack_require__(62);
@@ -2138,7 +2165,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_selection_control__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__foundation__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__material_ripple__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ripple_util__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__material_ripple_util__ = __webpack_require__(7);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MDCCheckboxFoundation", function() { return __WEBPACK_IMPORTED_MODULE_3__foundation__["a"]; });
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -2153,6 +2180,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -2177,12 +2205,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
-
 /**
  * @extends MDCComponent<!MDCCheckboxFoundation>
  * @implements {MDCSelectionControl}
  */
+
 var MDCCheckbox = function (_MDCComponent) {
   _inherits(MDCCheckbox, _MDCComponent);
 
@@ -2381,15 +2408,17 @@ var MDCCheckbox = function (_MDCComponent) {
   return MDCCheckbox;
 }(__WEBPACK_IMPORTED_MODULE_1__material_base_component__["a" /* default */]);
 
+
+
 /***/ }),
 /* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__material_base_foundation__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__adapter__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__adapter__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util__ = __webpack_require__(7);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2401,6 +2430,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -3036,6 +3066,7 @@ var MDCRippleFoundation = function (_MDCFoundation) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return strings; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return numbers; });
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -3081,6 +3112,8 @@ var numbers = {
   FG_DEACTIVATION_MS: 83
 };
 
+
+
 /***/ }),
 /* 22 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -3101,6 +3134,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -3450,10 +3484,11 @@ var MDCCheckboxFoundation = function (_MDCFoundation) {
  */
 
 
-/* harmony default export */ __webpack_exports__["a"] = (MDCCheckboxFoundation);
 function validDescriptor(inputPropDesc) {
   return !!inputPropDesc && typeof inputPropDesc.set === 'function';
 }
+
+/* harmony default export */ __webpack_exports__["a"] = (MDCCheckboxFoundation);
 
 /***/ }),
 /* 23 */
@@ -3466,6 +3501,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -3574,6 +3610,7 @@ var MDCCheckboxAdapter = function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return strings; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return numbers; });
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -3619,6 +3656,8 @@ var strings = {
 var numbers = {
   ANIM_END_LATCH_MS: 100
 };
+
+
 
 /***/ }),
 /* 25 */
@@ -4331,13 +4370,16 @@ module.exports = focusTrap;
 /* 30 */
 /***/ (function(module, exports) {
 
-module.exports = function(el) {
+module.exports = function(el, options) {
+  options = options || {};
+
+  var elementDocument = el.ownerDocument;
   var basicTabbables = [];
   var orderedTabbables = [];
 
   // A node is "available" if
   // - it's computed style
-  var isUnavailable = createIsUnavailable();
+  var isUnavailable = createIsUnavailable(elementDocument);
 
   var candidateSelectors = [
     'input',
@@ -4350,6 +4392,19 @@ module.exports = function(el) {
 
   var candidates = el.querySelectorAll(candidateSelectors);
 
+  if (options.includeContainer) {
+    var matches = Element.prototype.matches || Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+
+    if (
+      candidateSelectors.some(function(candidateSelector) {
+        return matches.call(el, candidateSelector);
+      })
+    ) {
+      candidates = Array.prototype.slice.apply(candidates);
+      candidates.unshift(el);
+    }
+  }
+
   var candidate, candidateIndex;
   for (var i = 0, l = candidates.length; i < l; i++) {
     candidate = candidates[i];
@@ -4359,7 +4414,7 @@ module.exports = function(el) {
       candidateIndex < 0
       || (candidate.tagName === 'INPUT' && candidate.type === 'hidden')
       || candidate.disabled
-      || isUnavailable(candidate)
+      || isUnavailable(candidate, elementDocument)
     ) {
       continue;
     }
@@ -4368,6 +4423,7 @@ module.exports = function(el) {
       basicTabbables.push(candidate);
     } else {
       orderedTabbables.push({
+        index: i,
         tabIndex: candidateIndex,
         node: candidate,
       });
@@ -4376,7 +4432,7 @@ module.exports = function(el) {
 
   var tabbableNodes = orderedTabbables
     .sort(function(a, b) {
-      return a.tabIndex - b.tabIndex;
+      return a.tabIndex === b.tabIndex ? a.index - b.index : a.tabIndex - b.tabIndex;
     })
     .map(function(a) {
       return a.node
@@ -4387,7 +4443,7 @@ module.exports = function(el) {
   return tabbableNodes;
 }
 
-function createIsUnavailable() {
+function createIsUnavailable(elementDocument) {
   // Node cache must be refreshed on every check, in case
   // the content of the element has changed
   var isOffCache = [];
@@ -4398,14 +4454,14 @@ function createIsUnavailable() {
   // "off" state, so we need to recursively check parents.
 
   function isOff(node, nodeComputedStyle) {
-    if (node === document.documentElement) return false;
+    if (node === elementDocument.documentElement) return false;
 
     // Find the cached node (Array.prototype.find not available in IE9)
     for (var i = 0, length = isOffCache.length; i < length; i++) {
       if (isOffCache[i][0] === node) return isOffCache[i][1];
     }
 
-    nodeComputedStyle = nodeComputedStyle || window.getComputedStyle(node);
+    nodeComputedStyle = nodeComputedStyle || elementDocument.defaultView.getComputedStyle(node);
 
     var result = false;
 
@@ -4421,9 +4477,9 @@ function createIsUnavailable() {
   }
 
   return function isUnavailable(node) {
-    if (node === document.documentElement) return false;
+    if (node === elementDocument.documentElement) return false;
 
-    var computedStyle = window.getComputedStyle(node);
+    var computedStyle = elementDocument.defaultView.getComputedStyle(node);
 
     if (isOff(node, computedStyle)) return true;
 
@@ -4438,7 +4494,7 @@ function createIsUnavailable() {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__temporary__ = __webpack_require__(32);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MDCTemporaryDrawer", function() { return __WEBPACK_IMPORTED_MODULE_1__temporary__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MDCTemporaryDrawerFoundation", function() { return __WEBPACK_IMPORTED_MODULE_1__temporary__["b"]; });
@@ -4475,7 +4531,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MDCTemporaryDrawer; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__material_base__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__foundation__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util__ = __webpack_require__(8);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__foundation__["a"]; });
 /* unused harmony reexport util */
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -5178,7 +5234,7 @@ var strings = {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MDCPersistentDrawer; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__material_base__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__foundation__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util__ = __webpack_require__(8);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__foundation__["a"]; });
 /* unused harmony reexport util */
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -5465,6 +5521,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
+ * @license
  * Copyright 2017 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -5486,11 +5543,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 /* eslint-enable no-unused-vars */
 
-
-
 /**
  * @extends MDCComponent<!MDCFormFieldFoundation>
  */
+
 var MDCFormField = function (_MDCComponent) {
   _inherits(MDCFormField, _MDCComponent);
 
@@ -5577,6 +5633,8 @@ var MDCFormField = function (_MDCComponent) {
   return MDCFormField;
 }(__WEBPACK_IMPORTED_MODULE_0__material_base_component__["a" /* default */]);
 
+
+
 /***/ }),
 /* 41 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -5596,6 +5654,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
+ * @license
  * Copyright 2017 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -5704,6 +5763,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -5779,6 +5839,7 @@ var MDCFormFieldAdapter = function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return cssClasses; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return strings; });
 /**
+ * @license
  * Copyright 2017 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -5803,6 +5864,8 @@ var cssClasses = {
 var strings = {
   LABEL_SELECTOR: '.mdc-form-field > label'
 };
+
+
 
 /***/ }),
 /* 44 */
@@ -6045,8 +6108,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MDCIconToggle", function() { return MDCIconToggle; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__material_base_component__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__foundation__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ripple_adapter__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ripple__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ripple__ = __webpack_require__(4);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MDCIconToggleFoundation", function() { return __WEBPACK_IMPORTED_MODULE_1__foundation__["a"]; });
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -6061,6 +6123,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -6078,16 +6141,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-/* eslint-disable no-unused-vars */
-
-/* eslint-enable no-unused-vars */
-
-
 
 
 /**
  * @extends {MDCComponent<!MDCIconToggleFoundation>}
  */
+
 var MDCIconToggle = function (_MDCComponent) {
   _inherits(MDCIconToggle, _MDCComponent);
 
@@ -6128,7 +6187,7 @@ var MDCIconToggle = function (_MDCComponent) {
     value: function initRipple_() {
       var _this2 = this;
 
-      var adapter = _extends(__WEBPACK_IMPORTED_MODULE_3__material_ripple__["MDCRipple"].createAdapter(this), {
+      var adapter = _extends(__WEBPACK_IMPORTED_MODULE_2__material_ripple__["MDCRipple"].createAdapter(this), {
         isUnbounded: function isUnbounded() {
           return true;
         },
@@ -6152,8 +6211,8 @@ var MDCIconToggle = function (_MDCComponent) {
           };
         }
       });
-      var foundation = new __WEBPACK_IMPORTED_MODULE_3__material_ripple__["MDCRippleFoundation"](adapter);
-      return new __WEBPACK_IMPORTED_MODULE_3__material_ripple__["MDCRipple"](this.root_, foundation);
+      var foundation = new __WEBPACK_IMPORTED_MODULE_2__material_ripple__["MDCRippleFoundation"](adapter);
+      return new __WEBPACK_IMPORTED_MODULE_2__material_ripple__["MDCRipple"](this.root_, foundation);
     }
   }, {
     key: 'destroy',
@@ -6258,12 +6317,13 @@ var MDCIconToggle = function (_MDCComponent) {
   return MDCIconToggle;
 }(__WEBPACK_IMPORTED_MODULE_0__material_base_component__["a" /* default */]);
 
+
+
 /***/ }),
 /* 48 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export KeyboardKey */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__material_base_foundation__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__adapter__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants__ = __webpack_require__(50);
@@ -6278,6 +6338,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -6538,7 +6599,6 @@ var MDCIconToggleFoundation = function (_MDCFoundation) {
  */
 
 
-/* harmony default export */ __webpack_exports__["a"] = (MDCIconToggleFoundation);
 var KeyboardKey = void 0;
 
 /**
@@ -6575,17 +6635,21 @@ IconToggleState.prototype.content;
  */
 IconToggleState.prototype.cssClass;
 
+/* harmony default export */ __webpack_exports__["a"] = (MDCIconToggleFoundation);
+
 /***/ }),
 /* 49 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* unused harmony export MDCIconToggleAdapter */
 /* unused harmony export IconToggleEvent */
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
+ * @license
  * Copyright 2017 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -6621,6 +6685,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  *
  * @record
  */
+
 var MDCIconToggleAdapter = function () {
   function MDCIconToggleAdapter() {
     _classCallCheck(this, MDCIconToggleAdapter);
@@ -6715,8 +6780,9 @@ var MDCIconToggleAdapter = function () {
  */
 
 
-/* unused harmony default export */ var _unused_webpack_default_export = (MDCIconToggleAdapter);
 var IconToggleEvent = void 0;
+
+
 
 /***/ }),
 /* 50 */
@@ -6726,6 +6792,7 @@ var IconToggleEvent = void 0;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return cssClasses; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return strings; });
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -6756,6 +6823,8 @@ var strings = {
   ARIA_LABEL: 'aria-label',
   CHANGE_EVENT: 'MDCIconToggle:change'
 };
+
+
 
 /***/ }),
 /* 51 */
@@ -7057,7 +7126,7 @@ var strings = {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MDCSimpleMenu; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__material_base_component__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__foundation__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util__ = __webpack_require__(10);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__foundation__["a"]; });
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -7068,6 +7137,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -7087,11 +7157,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
-
 /**
  * @extends MDCComponent<!MDCSimpleMenuFoundation>
  */
+
 var MDCSimpleMenu = function (_MDCComponent) {
   _inherits(MDCSimpleMenu, _MDCComponent);
 
@@ -7307,6 +7376,8 @@ var MDCSimpleMenu = function (_MDCComponent) {
   return MDCSimpleMenu;
 }(__WEBPACK_IMPORTED_MODULE_0__material_base_component__["a" /* default */]);
 
+
+
 /***/ }),
 /* 55 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -7315,7 +7386,7 @@ var MDCSimpleMenu = function (_MDCComponent) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__material_base_foundation__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__adapter__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util__ = __webpack_require__(10);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -7329,6 +7400,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -7950,6 +8022,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -8213,6 +8286,7 @@ var MDCSimpleMenuAdapter = function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return strings; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return numbers; });
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -8265,6 +8339,8 @@ var numbers = {
   TRANSITION_Y2: 1
 };
 
+
+
 /***/ }),
 /* 58 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -8290,6 +8366,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -8312,12 +8389,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
-
 /**
  * @extends MDCComponent<!MDCRadioFoundation>
  * @implements {MDCSelectionControl}
  */
+
 var MDCRadio = function (_MDCComponent) {
   _inherits(MDCRadio, _MDCComponent);
 
@@ -8485,6 +8561,8 @@ var MDCRadio = function (_MDCComponent) {
   return MDCRadio;
 }(__WEBPACK_IMPORTED_MODULE_0__material_base_component__["a" /* default */]);
 
+
+
 /***/ }),
 /* 59 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -8503,6 +8581,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -8654,6 +8733,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -8727,6 +8807,7 @@ var MDCRadioAdapter = function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return strings; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return cssClasses; });
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -8753,6 +8834,8 @@ var cssClasses = {
   DISABLED: 'mdc-radio--disabled'
 };
 
+
+
 /***/ }),
 /* 62 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -8761,7 +8844,7 @@ var cssClasses = {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MDCSelect", function() { return MDCSelect; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__material_base__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_menu__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_menu__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__foundation__ = __webpack_require__(63);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MDCSelectFoundation", function() { return __WEBPACK_IMPORTED_MODULE_2__foundation__["a"]; });
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -8990,7 +9073,7 @@ var MDCSelect = function (_MDCComponent) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__material_base__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__constants__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_menu__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_menu__ = __webpack_require__(9);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -11770,6 +11853,12 @@ var MDCTextfield = function (_MDCComponent) {
       if (this.root_.classList.contains(__WEBPACK_IMPORTED_MODULE_2__constants__["a" /* cssClasses */].BOX)) {
         this.ripple = rippleFactory(this.root_);
       };
+      if (!this.root_.classList.contains(__WEBPACK_IMPORTED_MODULE_2__constants__["a" /* cssClasses */].TEXTAREA)) {
+        this.bottomLine_ = this.root_.querySelector(__WEBPACK_IMPORTED_MODULE_2__constants__["b" /* strings */].BOTTOM_LINE_SELECTOR);
+      };
+      if (!this.root_.classList.contains(__WEBPACK_IMPORTED_MODULE_2__constants__["a" /* cssClasses */].TEXT_FIELD_ICON)) {
+        this.icon_ = this.root_.querySelector(__WEBPACK_IMPORTED_MODULE_2__constants__["b" /* strings */].ICON_SELECTOR);
+      };
     }
   }, {
     key: 'destroy',
@@ -11807,74 +11896,114 @@ var MDCTextfield = function (_MDCComponent) {
           if (label) {
             label.classList.remove(className);
           }
+        },
+        eventTargetHasClass: function eventTargetHasClass(target, className) {
+          return target.classList.contains(className);
+        },
+        registerTextFieldInteractionHandler: function registerTextFieldInteractionHandler(evtType, handler) {
+          return _this2.root_.addEventListener(evtType, handler);
+        },
+        deregisterTextFieldInteractionHandler: function deregisterTextFieldInteractionHandler(evtType, handler) {
+          return _this2.root_.removeEventListener(evtType, handler);
+        },
+        notifyIconAction: function notifyIconAction() {
+          return _this2.emit(__WEBPACK_IMPORTED_MODULE_3__foundation__["a" /* default */].strings.ICON_EVENT);
         }
-      }, this.getInputAdapterMethods_(), this.getHelptextAdapterMethods_()));
+      }, this.getInputAdapterMethods_(), this.getHelptextAdapterMethods_(), this.getBottomLineAdapterMethods_(), this.getIconAdapterMethods_()));
+    }
+  }, {
+    key: 'getIconAdapterMethods_',
+    value: function getIconAdapterMethods_() {
+      var _this3 = this;
+
+      return {
+        setIconAttr: function setIconAttr(name, value) {
+          if (_this3.icon_) {
+            _this3.icon_.setAttribute(name, value);
+          }
+        }
+      };
+    }
+  }, {
+    key: 'getBottomLineAdapterMethods_',
+    value: function getBottomLineAdapterMethods_() {
+      var _this4 = this;
+
+      return {
+        addClassToBottomLine: function addClassToBottomLine(className) {
+          if (_this4.bottomLine_) {
+            _this4.bottomLine_.classList.add(className);
+          }
+        },
+        removeClassFromBottomLine: function removeClassFromBottomLine(className) {
+          if (_this4.bottomLine_) {
+            _this4.bottomLine_.classList.remove(className);
+          }
+        },
+        setBottomLineAttr: function setBottomLineAttr(attr, value) {
+          if (_this4.bottomLine_) {
+            _this4.bottomLine_.setAttribute(attr, value);
+          }
+        },
+        registerTransitionEndHandler: function registerTransitionEndHandler(handler) {
+          if (_this4.bottomLine_) {
+            _this4.bottomLine_.addEventListener('transitionend', handler);
+          }
+        },
+        deregisterTransitionEndHandler: function deregisterTransitionEndHandler(handler) {
+          if (_this4.bottomLine_) {
+            _this4.bottomLine_.removeEventListener('transitionend', handler);
+          }
+        }
+      };
     }
   }, {
     key: 'getInputAdapterMethods_',
     value: function getInputAdapterMethods_() {
-      var _this3 = this;
+      var _this5 = this;
 
       return {
-        registerInputFocusHandler: function registerInputFocusHandler(handler) {
-          return _this3.input_.addEventListener('focus', handler);
+        registerInputInteractionHandler: function registerInputInteractionHandler(evtType, handler) {
+          return _this5.input_.addEventListener(evtType, handler);
         },
-        registerInputBlurHandler: function registerInputBlurHandler(handler) {
-          return _this3.input_.addEventListener('blur', handler);
-        },
-        registerInputInputHandler: function registerInputInputHandler(handler) {
-          return _this3.input_.addEventListener('input', handler);
-        },
-        registerInputKeydownHandler: function registerInputKeydownHandler(handler) {
-          return _this3.input_.addEventListener('keydown', handler);
-        },
-        deregisterInputFocusHandler: function deregisterInputFocusHandler(handler) {
-          return _this3.input_.removeEventListener('focus', handler);
-        },
-        deregisterInputBlurHandler: function deregisterInputBlurHandler(handler) {
-          return _this3.input_.removeEventListener('blur', handler);
-        },
-        deregisterInputInputHandler: function deregisterInputInputHandler(handler) {
-          return _this3.input_.removeEventListener('input', handler);
-        },
-        deregisterInputKeydownHandler: function deregisterInputKeydownHandler(handler) {
-          return _this3.input_.removeEventListener('keydown', handler);
+        deregisterInputInteractionHandler: function deregisterInputInteractionHandler(evtType, handler) {
+          return _this5.input_.removeEventListener(evtType, handler);
         },
         getNativeInput: function getNativeInput() {
-          return _this3.input_;
+          return _this5.input_;
         }
       };
     }
   }, {
     key: 'getHelptextAdapterMethods_',
     value: function getHelptextAdapterMethods_() {
-      var _this4 = this;
+      var _this6 = this;
 
       return {
         addClassToHelptext: function addClassToHelptext(className) {
-          if (_this4.helptextElement) {
-            _this4.helptextElement.classList.add(className);
+          if (_this6.helptextElement) {
+            _this6.helptextElement.classList.add(className);
           }
         },
         removeClassFromHelptext: function removeClassFromHelptext(className) {
-          if (_this4.helptextElement) {
-            _this4.helptextElement.classList.remove(className);
+          if (_this6.helptextElement) {
+            _this6.helptextElement.classList.remove(className);
           }
         },
         helptextHasClass: function helptextHasClass(className) {
-          if (!_this4.helptextElement) {
+          if (!_this6.helptextElement) {
             return false;
           }
-          return _this4.helptextElement.classList.contains(className);
+          return _this6.helptextElement.classList.contains(className);
         },
         setHelptextAttr: function setHelptextAttr(name, value) {
-          if (_this4.helptextElement) {
-            _this4.helptextElement.setAttribute(name, value);
+          if (_this6.helptextElement) {
+            _this6.helptextElement.setAttribute(name, value);
           }
         },
         removeHelptextAttr: function removeHelptextAttr(name) {
-          if (_this4.helptextElement) {
-            _this4.helptextElement.removeAttribute(name);
+          if (_this6.helptextElement) {
+            _this6.helptextElement.removeAttribute(name);
           }
         }
       };
@@ -11959,26 +12088,27 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
         removeClass: function removeClass() /* className: string */{},
         addClassToLabel: function addClassToLabel() /* className: string */{},
         removeClassFromLabel: function removeClassFromLabel() /* className: string */{},
+        setIconAttr: function setIconAttr() /* name: string, value: string */{},
+        eventTargetHasClass: function eventTargetHasClass() /* target: HTMLElement, className: string */{},
+        registerTextFieldInteractionHandler: function registerTextFieldInteractionHandler() {},
+        deregisterTextFieldInteractionHandler: function deregisterTextFieldInteractionHandler() {},
+        notifyIconAction: function notifyIconAction() {},
+        addClassToBottomLine: function addClassToBottomLine() /* className: string */{},
+        removeClassFromBottomLine: function removeClassFromBottomLine() /* className: string */{},
         addClassToHelptext: function addClassToHelptext() /* className: string */{},
         removeClassFromHelptext: function removeClassFromHelptext() /* className: string */{},
         helptextHasClass: function helptextHasClass() {
           return (/* className: string */ /* boolean */false
           );
         },
-        registerInputFocusHandler: function registerInputFocusHandler() /* handler: EventListener */{},
-        deregisterInputFocusHandler: function deregisterInputFocusHandler() /* handler: EventListener */{},
-        registerInputBlurHandler: function registerInputBlurHandler() /* handler: EventListener */{},
-        deregisterInputBlurHandler: function deregisterInputBlurHandler() /* handler: EventListener */{},
-        registerInputInputHandler: function registerInputInputHandler() /* handler: EventListener */{},
-        deregisterInputInputHandler: function deregisterInputInputHandler() /* handler: EventListener */{},
-        registerInputKeydownHandler: function registerInputKeydownHandler() /* handler: EventListener */{},
-        deregisterInputKeydownHandler: function deregisterInputKeydownHandler() /* handler: EventListener */{},
+        registerInputInteractionHandler: function registerInputInteractionHandler() /* evtType: string, handler: EventListener */{},
+        deregisterInputInteractionHandler: function deregisterInputInteractionHandler() /* evtType: string, handler: EventListener */{},
+        registerTransitionEndHandler: function registerTransitionEndHandler() /* handler: EventListener */{},
+        deregisterTransitionEndHandler: function deregisterTransitionEndHandler() /* handler: EventListener */{},
+        setBottomLineAttr: function setBottomLineAttr() /* attr: string, value: string */{},
         setHelptextAttr: function setHelptextAttr() /* name: string, value: string */{},
         removeHelptextAttr: function removeHelptextAttr() /* name: string */{},
-        getNativeInput: function getNativeInput() {
-          return (/* HTMLInputElement */{}
-          );
-        }
+        getNativeInput: function getNativeInput() /* HTMLInputElement */{}
       };
     }
   }]);
@@ -11990,7 +12120,9 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
 
     var _this = _possibleConstructorReturn(this, (MDCTextfieldFoundation.__proto__ || Object.getPrototypeOf(MDCTextfieldFoundation)).call(this, _extends(MDCTextfieldFoundation.defaultAdapter, adapter)));
 
+    _this.isFocused_ = false;
     _this.receivedUserInput_ = false;
+    _this.useCustomValidityChecking_ = false;
     _this.inputFocusHandler_ = function () {
       return _this.activateFocus_();
     };
@@ -12000,46 +12132,102 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
     _this.inputInputHandler_ = function () {
       return _this.autoCompleteFocus_();
     };
-    _this.inputKeydownHandler_ = function () {
-      return _this.receivedUserInput_ = true;
+    _this.setPointerXOffset_ = function (evt) {
+      return _this.setBottomLineTransformOrigin_(evt);
     };
-    _this.useCustomValidityChecking_ = false;
+    _this.textFieldInteractionHandler_ = function (evt) {
+      return _this.handleTextFieldInteraction_(evt);
+    };
+    _this.transitionEndHandler_ = function (evt) {
+      return _this.transitionEnd_(evt);
+    };
     return _this;
   }
 
   _createClass(MDCTextfieldFoundation, [{
     key: 'init',
     value: function init() {
-      this.adapter_.addClass(MDCTextfieldFoundation.cssClasses.UPGRADED);
-      this.adapter_.registerInputFocusHandler(this.inputFocusHandler_);
-      this.adapter_.registerInputBlurHandler(this.inputBlurHandler_);
-      this.adapter_.registerInputInputHandler(this.inputInputHandler_);
-      this.adapter_.registerInputKeydownHandler(this.inputKeydownHandler_);
+      var _this2 = this;
 
+      this.adapter_.addClass(MDCTextfieldFoundation.cssClasses.UPGRADED);
       // Ensure label does not collide with any pre-filled value.
       if (this.getNativeInput_().value) {
         this.adapter_.addClassToLabel(MDCTextfieldFoundation.cssClasses.LABEL_FLOAT_ABOVE);
       }
+
+      this.adapter_.registerInputInteractionHandler('focus', this.inputFocusHandler_);
+      this.adapter_.registerInputInteractionHandler('blur', this.inputBlurHandler_);
+      this.adapter_.registerInputInteractionHandler('input', this.inputInputHandler_);
+      ['mousedown', 'touchstart'].forEach(function (evtType) {
+        _this2.adapter_.registerInputInteractionHandler(evtType, _this2.setPointerXOffset_);
+      });
+      ['click', 'keydown'].forEach(function (evtType) {
+        _this2.adapter_.registerTextFieldInteractionHandler(evtType, _this2.textFieldInteractionHandler_);
+      });
+      this.adapter_.registerTransitionEndHandler(this.transitionEndHandler_);
     }
   }, {
     key: 'destroy',
     value: function destroy() {
+      var _this3 = this;
+
       this.adapter_.removeClass(MDCTextfieldFoundation.cssClasses.UPGRADED);
-      this.adapter_.deregisterInputFocusHandler(this.inputFocusHandler_);
-      this.adapter_.deregisterInputBlurHandler(this.inputBlurHandler_);
-      this.adapter_.deregisterInputInputHandler(this.inputInputHandler_);
-      this.adapter_.deregisterInputKeydownHandler(this.inputKeydownHandler_);
+      this.adapter_.deregisterInputInteractionHandler('focus', this.inputFocusHandler_);
+      this.adapter_.deregisterInputInteractionHandler('blur', this.inputBlurHandler_);
+      this.adapter_.deregisterInputInteractionHandler('input', this.inputInputHandler_);
+      ['mousedown', 'touchstart'].forEach(function (evtType) {
+        _this3.adapter_.deregisterInputInteractionHandler(evtType, _this3.setPointerXOffset_);
+      });
+      ['click', 'keydown'].forEach(function (evtType) {
+        _this3.adapter_.deregisterTextFieldInteractionHandler(evtType, _this3.textFieldInteractionHandler_);
+      });
+      this.adapter_.deregisterTransitionEndHandler(this.transitionEndHandler_);
+    }
+  }, {
+    key: 'handleTextFieldInteraction_',
+    value: function handleTextFieldInteraction_(evt) {
+      if (this.adapter_.getNativeInput().disabled) {
+        return;
+      }
+
+      this.receivedUserInput_ = true;
+
+      var target = evt.target,
+          type = evt.type;
+      var TEXT_FIELD_ICON = MDCTextfieldFoundation.cssClasses.TEXT_FIELD_ICON;
+
+      var targetIsIcon = this.adapter_.eventTargetHasClass(target, TEXT_FIELD_ICON);
+      var eventTriggersNotification = type === 'click' || evt.key === 'Enter' || evt.keyCode === 13;
+
+      if (targetIsIcon && eventTriggersNotification) {
+        this.adapter_.notifyIconAction();
+      }
     }
   }, {
     key: 'activateFocus_',
     value: function activateFocus_() {
       var _MDCTextfieldFoundati = MDCTextfieldFoundation.cssClasses,
+          BOTTOM_LINE_ACTIVE = _MDCTextfieldFoundati.BOTTOM_LINE_ACTIVE,
           FOCUSED = _MDCTextfieldFoundati.FOCUSED,
-          LABEL_FLOAT_ABOVE = _MDCTextfieldFoundati.LABEL_FLOAT_ABOVE;
+          LABEL_FLOAT_ABOVE = _MDCTextfieldFoundati.LABEL_FLOAT_ABOVE,
+          LABEL_SHAKE = _MDCTextfieldFoundati.LABEL_SHAKE;
 
       this.adapter_.addClass(FOCUSED);
+      this.adapter_.addClassToBottomLine(BOTTOM_LINE_ACTIVE);
       this.adapter_.addClassToLabel(LABEL_FLOAT_ABOVE);
+      this.adapter_.removeClassFromLabel(LABEL_SHAKE);
       this.showHelptext_();
+      this.isFocused_ = true;
+    }
+  }, {
+    key: 'setBottomLineTransformOrigin_',
+    value: function setBottomLineTransformOrigin_(evt) {
+      var targetClientRect = evt.target.getBoundingClientRect();
+      var evtCoords = { x: evt.clientX, y: evt.clientY };
+      var normalizedX = evtCoords.x - targetClientRect.left;
+      var attributeString = 'transform-origin: ' + normalizedX + 'px center';
+
+      this.adapter_.setBottomLineAttr('style', attributeString);
     }
   }, {
     key: 'autoCompleteFocus_',
@@ -12056,19 +12244,37 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
       this.adapter_.removeHelptextAttr(ARIA_HIDDEN);
     }
   }, {
+    key: 'transitionEnd_',
+    value: function transitionEnd_(evt) {
+      var BOTTOM_LINE_ACTIVE = MDCTextfieldFoundation.cssClasses.BOTTOM_LINE_ACTIVE;
+
+      // We need to wait for the bottom line to be entirely transparent
+      // before removing the class. If we do not, we see the line start to
+      // scale down before disappearing
+
+      if (evt.propertyName === 'opacity' && !this.isFocused_) {
+        this.adapter_.removeClassFromBottomLine(BOTTOM_LINE_ACTIVE);
+      }
+    }
+  }, {
     key: 'deactivateFocus_',
     value: function deactivateFocus_() {
       var _MDCTextfieldFoundati2 = MDCTextfieldFoundation.cssClasses,
           FOCUSED = _MDCTextfieldFoundati2.FOCUSED,
-          LABEL_FLOAT_ABOVE = _MDCTextfieldFoundati2.LABEL_FLOAT_ABOVE;
+          LABEL_FLOAT_ABOVE = _MDCTextfieldFoundati2.LABEL_FLOAT_ABOVE,
+          LABEL_SHAKE = _MDCTextfieldFoundati2.LABEL_SHAKE;
 
       var input = this.getNativeInput_();
 
+      this.isFocused_ = false;
       this.adapter_.removeClass(FOCUSED);
+      this.adapter_.removeClassFromLabel(LABEL_SHAKE);
+
       if (!input.value && !this.isBadInput_()) {
         this.adapter_.removeClassFromLabel(LABEL_FLOAT_ABOVE);
         this.receivedUserInput_ = false;
       }
+
       if (!this.useCustomValidityChecking_) {
         this.changeValidity_(input.checkValidity());
       }
@@ -12076,11 +12282,14 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
   }, {
     key: 'changeValidity_',
     value: function changeValidity_(isValid) {
-      var INVALID = MDCTextfieldFoundation.cssClasses.INVALID;
+      var _MDCTextfieldFoundati3 = MDCTextfieldFoundation.cssClasses,
+          INVALID = _MDCTextfieldFoundati3.INVALID,
+          LABEL_SHAKE = _MDCTextfieldFoundati3.LABEL_SHAKE;
 
       if (isValid) {
         this.adapter_.removeClass(INVALID);
       } else {
+        this.adapter_.addClassToLabel(LABEL_SHAKE);
         this.adapter_.addClass(INVALID);
       }
       this.updateHelptext_(isValid);
@@ -12088,9 +12297,9 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
   }, {
     key: 'updateHelptext_',
     value: function updateHelptext_(isValid) {
-      var _MDCTextfieldFoundati3 = MDCTextfieldFoundation.cssClasses,
-          HELPTEXT_PERSISTENT = _MDCTextfieldFoundati3.HELPTEXT_PERSISTENT,
-          HELPTEXT_VALIDATION_MSG = _MDCTextfieldFoundati3.HELPTEXT_VALIDATION_MSG;
+      var _MDCTextfieldFoundati4 = MDCTextfieldFoundation.cssClasses,
+          HELPTEXT_PERSISTENT = _MDCTextfieldFoundati4.HELPTEXT_PERSISTENT,
+          HELPTEXT_VALIDATION_MSG = _MDCTextfieldFoundati4.HELPTEXT_VALIDATION_MSG;
       var ROLE = MDCTextfieldFoundation.strings.ROLE;
 
       var helptextIsPersistent = this.adapter_.helptextHasClass(HELPTEXT_PERSISTENT);
@@ -12134,8 +12343,10 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
       this.getNativeInput_().disabled = disabled;
       if (disabled) {
         this.adapter_.addClass(DISABLED);
+        this.adapter_.setIconAttr('tabindex', '-1');
       } else {
         this.adapter_.removeClass(DISABLED);
+        this.adapter_.setIconAttr('tabindex', '0');
       }
     }
   }, {
