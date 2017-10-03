@@ -1,5 +1,5 @@
 module MaterialComponentsWeb
   module Sass
-    VERSION = '0.21.1'.freeze
+    VERSION = '0.22.0'.freeze
   end
 end
