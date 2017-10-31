@@ -1910,6 +1910,7 @@ var MDCTabBar = function (_MDCComponent) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return cssClasses; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return strings; });
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -3327,16 +3328,12 @@ var MDCRippleFoundation = function (_MDCFoundation) {
     key: 'updateLayoutCssVars_',
     value: function updateLayoutCssVars_() {
       var _MDCRippleFoundation$6 = MDCRippleFoundation.strings,
-          VAR_SURFACE_WIDTH = _MDCRippleFoundation$6.VAR_SURFACE_WIDTH,
-          VAR_SURFACE_HEIGHT = _MDCRippleFoundation$6.VAR_SURFACE_HEIGHT,
           VAR_FG_SIZE = _MDCRippleFoundation$6.VAR_FG_SIZE,
           VAR_LEFT = _MDCRippleFoundation$6.VAR_LEFT,
           VAR_TOP = _MDCRippleFoundation$6.VAR_TOP,
           VAR_FG_SCALE = _MDCRippleFoundation$6.VAR_FG_SCALE;
 
 
-      this.adapter_.updateCssVariable(VAR_SURFACE_WIDTH, this.frame_.width + 'px');
-      this.adapter_.updateCssVariable(VAR_SURFACE_HEIGHT, this.frame_.height + 'px');
       this.adapter_.updateCssVariable(VAR_FG_SIZE, this.initialSize_ + 'px');
       this.adapter_.updateCssVariable(VAR_FG_SCALE, this.fgScale_);
 
@@ -3395,8 +3392,6 @@ var cssClasses = {
 };
 
 var strings = {
-  VAR_SURFACE_WIDTH: '--mdc-ripple-surface-width',
-  VAR_SURFACE_HEIGHT: '--mdc-ripple-surface-height',
   VAR_FG_SIZE: '--mdc-ripple-fg-size',
   VAR_LEFT: '--mdc-ripple-left',
   VAR_TOP: '--mdc-ripple-top',
@@ -6556,7 +6551,7 @@ var MDCIconToggle = function (_MDCComponent) {
       this.disabled = this.root_.getAttribute(__WEBPACK_IMPORTED_MODULE_1__foundation__["a" /* default */].strings.ARIA_DISABLED) === 'true';
     }
 
-    /** @return {boolean} */
+    /** @return {!MDCRipple} */
 
   }, {
     key: 'refreshToggleData',
@@ -6571,6 +6566,14 @@ var MDCIconToggle = function (_MDCComponent) {
       return sel ?
       /** @type {!Element} */this.root_.querySelector(sel) : this.root_;
     }
+  }, {
+    key: 'ripple',
+    get: function get() {
+      return this.ripple_;
+    }
+
+    /** @return {boolean} */
+
   }, {
     key: 'on',
     get: function get() {
@@ -12089,6 +12092,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12440,6 +12444,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
+ * @license
  * Copyright 2016 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
