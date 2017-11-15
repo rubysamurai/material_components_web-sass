@@ -706,7 +706,8 @@ RippleCapableSurface.prototype.disabled;
 /**
  * @typedef {{
  *   noPrefix: string,
- *   webkitPrefix: string
+ *   webkitPrefix: string,
+ *   styleProperty: string
  * }}
  */
 var VendorPropertyMapType = void 0;
@@ -1512,7 +1513,6 @@ var cssClasses = {
   DISCRETE: 'mdc-slider--discrete',
   FOCUS: 'mdc-slider--focus',
   IN_TRANSIT: 'mdc-slider--in-transit',
-  OFF: 'mdc-slider--off',
   IS_DISCRETE: 'mdc-slider--discrete',
   HAS_TRACK_MARKER: 'mdc-slider--display-markers'
 };
@@ -1930,28 +1930,28 @@ var MDCTabBar = function (_MDCComponent) {
 var strings = {
   ARIA_HIDDEN: 'aria-hidden',
   ROLE: 'role',
-  INPUT_SELECTOR: '.mdc-textfield__input',
-  LABEL_SELECTOR: '.mdc-textfield__label',
-  ICON_SELECTOR: '.mdc-textfield__icon',
-  ICON_EVENT: 'MDCTextfield:icon',
-  BOTTOM_LINE_SELECTOR: '.mdc-textfield__bottom-line'
+  INPUT_SELECTOR: '.mdc-text-field__input',
+  LABEL_SELECTOR: '.mdc-text-field__label',
+  ICON_SELECTOR: '.mdc-text-field__icon',
+  ICON_EVENT: 'MDCTextField:icon',
+  BOTTOM_LINE_SELECTOR: '.mdc-text-field__bottom-line'
 };
 
 /** @enum {string} */
 var cssClasses = {
-  ROOT: 'mdc-textfield',
-  UPGRADED: 'mdc-textfield--upgraded',
-  DISABLED: 'mdc-textfield--disabled',
-  FOCUSED: 'mdc-textfield--focused',
-  INVALID: 'mdc-textfield--invalid',
-  HELPTEXT_PERSISTENT: 'mdc-textfield-helptext--persistent',
-  HELPTEXT_VALIDATION_MSG: 'mdc-textfield-helptext--validation-msg',
-  LABEL_FLOAT_ABOVE: 'mdc-textfield__label--float-above',
-  LABEL_SHAKE: 'mdc-textfield__label--shake',
-  BOX: 'mdc-textfield--box',
-  TEXT_FIELD_ICON: 'mdc-textfield__icon',
-  TEXTAREA: 'mdc-textfield--textarea',
-  BOTTOM_LINE_ACTIVE: 'mdc-textfield__bottom-line--active'
+  ROOT: 'mdc-text-field',
+  UPGRADED: 'mdc-text-field--upgraded',
+  DISABLED: 'mdc-text-field--disabled',
+  FOCUSED: 'mdc-text-field--focused',
+  INVALID: 'mdc-text-field--invalid',
+  HELPTEXT_PERSISTENT: 'mdc-text-field-helptext--persistent',
+  HELPTEXT_VALIDATION_MSG: 'mdc-text-field-helptext--validation-msg',
+  LABEL_FLOAT_ABOVE: 'mdc-text-field__label--float-above',
+  LABEL_SHAKE: 'mdc-text-field__label--shake',
+  BOX: 'mdc-text-field--box',
+  TEXT_FIELD_ICON: 'mdc-text-field__icon',
+  TEXTAREA: 'mdc-text-field--textarea',
+  BOTTOM_LINE_ACTIVE: 'mdc-text-field__bottom-line--active'
 };
 
 
@@ -1961,7 +1961,7 @@ var cssClasses = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export MDCTextfieldAdapter */
+/* unused harmony export MDCTextFieldAdapter */
 /* unused harmony export NativeInputType */
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -1997,22 +1997,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var NativeInputType = void 0;
 
 /**
- * Adapter for MDC Textfield.
+ * Adapter for MDC Text Field.
  *
  * Defines the shape of the adapter expected by the foundation. Implement this
- * adapter to integrate the Textfield into your framework. See
+ * adapter to integrate the Text Field into your framework. See
  * https://github.com/material-components/material-components-web/blob/master/docs/authoring-components.md
  * for more information.
  *
  * @record
  */
 
-var MDCTextfieldAdapter = function () {
-  function MDCTextfieldAdapter() {
-    _classCallCheck(this, MDCTextfieldAdapter);
+var MDCTextFieldAdapter = function () {
+  function MDCTextFieldAdapter() {
+    _classCallCheck(this, MDCTextFieldAdapter);
   }
 
-  _createClass(MDCTextfieldAdapter, [{
+  _createClass(MDCTextFieldAdapter, [{
     key: "addClass",
 
     /**
@@ -2093,7 +2093,7 @@ var MDCTextfieldAdapter = function () {
     value: function deregisterTextFieldInteractionHandler(type, handler) {}
 
     /**
-     * Emits a custom event "MDCTextfield:icon" denoting a user has clicked the icon.
+     * Emits a custom event "MDCTextField:icon" denoting a user has clicked the icon.
      */
 
   }, {
@@ -2231,7 +2231,7 @@ var MDCTextfieldAdapter = function () {
     value: function getNativeInput() {}
   }]);
 
-  return MDCTextfieldAdapter;
+  return MDCTextFieldAdapter;
 }();
 
 
@@ -2278,7 +2278,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "slider", function() { return __WEBPACK_IMPORTED_MODULE_14__material_slider__; });
 /* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "snackbar", function() { return __WEBPACK_IMPORTED_MODULE_15__material_snackbar__; });
 /* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "tabs", function() { return __WEBPACK_IMPORTED_MODULE_16__material_tabs__; });
-/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "textfield", function() { return __WEBPACK_IMPORTED_MODULE_17__material_textfield__; });
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "textField", function() { return __WEBPACK_IMPORTED_MODULE_17__material_textfield__; });
 /* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "toolbar", function() { return __WEBPACK_IMPORTED_MODULE_18__material_toolbar__; });
 /**
  * Copyright 2016 Google Inc. All Rights Reserved.
@@ -2330,7 +2330,7 @@ __WEBPACK_IMPORTED_MODULE_0__material_auto_init__["a" /* default */].register('M
 __WEBPACK_IMPORTED_MODULE_0__material_auto_init__["a" /* default */].register('MDCSnackbar', __WEBPACK_IMPORTED_MODULE_15__material_snackbar__["MDCSnackbar"]);
 __WEBPACK_IMPORTED_MODULE_0__material_auto_init__["a" /* default */].register('MDCTab', __WEBPACK_IMPORTED_MODULE_16__material_tabs__["MDCTab"]);
 __WEBPACK_IMPORTED_MODULE_0__material_auto_init__["a" /* default */].register('MDCTabBar', __WEBPACK_IMPORTED_MODULE_16__material_tabs__["MDCTabBar"]);
-__WEBPACK_IMPORTED_MODULE_0__material_auto_init__["a" /* default */].register('MDCTextfield', __WEBPACK_IMPORTED_MODULE_17__material_textfield__["MDCTextfield"]);
+__WEBPACK_IMPORTED_MODULE_0__material_auto_init__["a" /* default */].register('MDCTextField', __WEBPACK_IMPORTED_MODULE_17__material_textfield__["MDCTextField"]);
 __WEBPACK_IMPORTED_MODULE_0__material_auto_init__["a" /* default */].register('MDCSimpleMenu', __WEBPACK_IMPORTED_MODULE_9__material_menu__["MDCSimpleMenu"]);
 __WEBPACK_IMPORTED_MODULE_0__material_auto_init__["a" /* default */].register('MDCSelect', __WEBPACK_IMPORTED_MODULE_12__material_select__["MDCSelect"]);
 __WEBPACK_IMPORTED_MODULE_0__material_auto_init__["a" /* default */].register('MDCSlider', __WEBPACK_IMPORTED_MODULE_14__material_slider__["MDCSlider"]);
@@ -10002,6 +10002,9 @@ var KEY_IDS = {
   PAGE_DOWN: 'PageDown'
 };
 
+// Events that can constitute the user releasing drag on a slider
+var UP_EVENTS = ['mouseup', 'pointerup', 'touchend'];
+
 var MDCSliderFoundation = function (_MDCFoundation) {
   _inherits(MDCSliderFoundation, _MDCFoundation);
 
@@ -10081,7 +10084,6 @@ var MDCSliderFoundation = function (_MDCFoundation) {
     // We set this to NaN since we want it to be a number, but we can't use '0' or '-1'
     // because those could be valid tabindices set by the client code.
     _this.savedTabIndex_ = NaN;
-    _this.off_ = false;
     _this.active_ = false;
     _this.inTransit_ = false;
     _this.isDiscrete_ = false;
@@ -10097,9 +10099,9 @@ var MDCSliderFoundation = function (_MDCFoundation) {
     _this.thumbContainerPointerHandler_ = function () {
       _this.handlingThumbTargetEvt_ = true;
     };
-    _this.mousedownHandler_ = _this.createDownHandler_('mousemove', 'mouseup');
-    _this.pointerdownHandler_ = _this.createDownHandler_('pointermove', 'pointerup');
-    _this.touchstartHandler_ = _this.createDownHandler_('touchmove', 'touchend', function (_ref) {
+    _this.mousedownHandler_ = _this.createDownHandler_('mousemove');
+    _this.pointerdownHandler_ = _this.createDownHandler_('pointermove');
+    _this.touchstartHandler_ = _this.createDownHandler_('touchmove', function (_ref) {
       var targetTouches = _ref.targetTouches;
       return targetTouches[0].pageX;
     });
@@ -10273,10 +10275,10 @@ var MDCSliderFoundation = function (_MDCFoundation) {
     }
   }, {
     key: 'createDownHandler_',
-    value: function createDownHandler_(moveEvt, upEvt) {
+    value: function createDownHandler_(moveEvt) {
       var _this4 = this;
 
-      var getPageX = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function (_ref2) {
+      var getPageX = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function (_ref2) {
         var pageX = _ref2.pageX;
         return pageX;
       };
@@ -10286,10 +10288,15 @@ var MDCSliderFoundation = function (_MDCFoundation) {
         _this4.setValueFromEvt_(evt, getPageX);
       };
 
+      // Note: upHandler is [de]registered on ALL potential pointer-related release event types, since some browsers
+      // do not always fire these consistently in pairs.
+      // (See https://github.com/material-components/material-components-web/issues/1192)
       var upHandler = function upHandler() {
         _this4.setActive_(false);
         _this4.adapter_.deregisterBodyInteractionHandler(moveEvt, moveHandler);
-        _this4.adapter_.deregisterBodyInteractionHandler(upEvt, upHandler);
+        UP_EVENTS.forEach(function (type) {
+          return _this4.adapter_.deregisterBodyInteractionHandler(type, upHandler);
+        });
         _this4.adapter_.notifyChange();
       };
 
@@ -10305,7 +10312,9 @@ var MDCSliderFoundation = function (_MDCFoundation) {
         _this4.setActive_(true);
 
         _this4.adapter_.registerBodyInteractionHandler(moveEvt, moveHandler);
-        _this4.adapter_.registerBodyInteractionHandler(upEvt, upHandler);
+        UP_EVENTS.forEach(function (type) {
+          return _this4.adapter_.registerBodyInteractionHandler(type, upHandler);
+        });
         _this4.setValueFromEvt_(evt, getPageX);
       };
 
@@ -10493,7 +10502,6 @@ var MDCSliderFoundation = function (_MDCFoundation) {
       }
 
       this.updateUIFrame_ = requestAnimationFrame(function () {
-        _this5.setOff_(pctComplete === 0);
         // NOTE(traviskaufman): It would be nice to use calc() here,
         // but IE cannot handle calcs in transforms correctly.
         // See: https://goo.gl/NC2itk
@@ -10501,12 +10509,6 @@ var MDCSliderFoundation = function (_MDCFoundation) {
         _this5.adapter_.setThumbContainerStyleProperty(transformProp, 'translateX(' + translatePx + 'px) translateX(-50%)');
         _this5.adapter_.setTrackStyleProperty(transformProp, 'scaleX(' + pctComplete + ')');
       });
-    }
-  }, {
-    key: 'setOff_',
-    value: function setOff_(off) {
-      this.off_ = off;
-      this.toggleClass_(__WEBPACK_IMPORTED_MODULE_0__constants__["a" /* cssClasses */].OFF, this.off_);
     }
   }, {
     key: 'setActive_',
@@ -12072,13 +12074,13 @@ var strings = {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MDCTextfield", function() { return MDCTextfield; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MDCTextField", function() { return MDCTextField; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__material_base_component__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_ripple__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__adapter__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__foundation__ = __webpack_require__(79);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MDCTextfieldFoundation", function() { return __WEBPACK_IMPORTED_MODULE_4__foundation__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MDCTextFieldFoundation", function() { return __WEBPACK_IMPORTED_MODULE_4__foundation__["a"]; });
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -12116,27 +12118,27 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 /**
- * @extends {MDCComponent<!MDCTextfieldFoundation>}
+ * @extends {MDCComponent<!MDCTextFieldFoundation>}
  * @final
  */
 
-var MDCTextfield = function (_MDCComponent) {
-  _inherits(MDCTextfield, _MDCComponent);
+var MDCTextField = function (_MDCComponent) {
+  _inherits(MDCTextField, _MDCComponent);
 
   /**
    * @param {...?} args
    */
-  function MDCTextfield() {
+  function MDCTextField() {
     var _ref;
 
-    _classCallCheck(this, MDCTextfield);
+    _classCallCheck(this, MDCTextField);
 
     for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
     /** @private {?Element} */
-    var _this = _possibleConstructorReturn(this, (_ref = MDCTextfield.__proto__ || Object.getPrototypeOf(MDCTextfield)).call.apply(_ref, [this].concat(args)));
+    var _this = _possibleConstructorReturn(this, (_ref = MDCTextField.__proto__ || Object.getPrototypeOf(MDCTextField)).call.apply(_ref, [this].concat(args)));
 
     _this.input_;
     /** @private {?Element} */
@@ -12154,11 +12156,11 @@ var MDCTextfield = function (_MDCComponent) {
 
   /**
    * @param {!Element} root
-   * @return {!MDCTextfield}
+   * @return {!MDCTextField}
    */
 
 
-  _createClass(MDCTextfield, [{
+  _createClass(MDCTextField, [{
     key: 'initialize',
 
 
@@ -12194,11 +12196,11 @@ var MDCTextfield = function (_MDCComponent) {
       if (this.ripple) {
         this.ripple.destroy();
       }
-      _get(MDCTextfield.prototype.__proto__ || Object.getPrototypeOf(MDCTextfield.prototype), 'destroy', this).call(this);
+      _get(MDCTextField.prototype.__proto__ || Object.getPrototypeOf(MDCTextField.prototype), 'destroy', this).call(this);
     }
 
     /**
-     * Initiliazes the Textfield's internal state based on the environment's
+     * Initiliazes the Text Field's internal state based on the environment's
      * state.
      */
 
@@ -12209,7 +12211,7 @@ var MDCTextfield = function (_MDCComponent) {
     }
 
     /**
-     * @return {boolean} True if the Textfield is disabled.
+     * @return {boolean} True if the Text Field is disabled.
      */
 
   }, {
@@ -12217,12 +12219,12 @@ var MDCTextfield = function (_MDCComponent) {
 
 
     /**
-     * @return {!MDCTextfieldFoundation}
+     * @return {!MDCTextFieldFoundation}
      */
     value: function getDefaultFoundation() {
       var _this2 = this;
 
-      return new __WEBPACK_IMPORTED_MODULE_4__foundation__["a" /* default */]( /** @type {!MDCTextfieldAdapter} */_extends({
+      return new __WEBPACK_IMPORTED_MODULE_4__foundation__["a" /* default */]( /** @type {!MDCTextFieldAdapter} */_extends({
         addClass: function addClass(className) {
           return _this2.root_.classList.add(className);
         },
@@ -12397,7 +12399,7 @@ var MDCTextfield = function (_MDCComponent) {
     }
 
     /**
-     * @param {boolean} disabled Sets the Textfield disabled or enabled.
+     * @param {boolean} disabled Sets the Text Field disabled or enabled.
      */
     ,
     set: function set(disabled) {
@@ -12405,7 +12407,7 @@ var MDCTextfield = function (_MDCComponent) {
     }
 
     /**
-     * @param {boolean} valid Sets the Textfield valid or invalid.
+     * @param {boolean} valid Sets the Text Field valid or invalid.
      */
 
   }, {
@@ -12416,11 +12418,11 @@ var MDCTextfield = function (_MDCComponent) {
   }], [{
     key: 'attachTo',
     value: function attachTo(root) {
-      return new MDCTextfield(root);
+      return new MDCTextField(root);
     }
   }]);
 
-  return MDCTextfield;
+  return MDCTextField;
 }(__WEBPACK_IMPORTED_MODULE_0__material_base_component__["a" /* default */]);
 
 
@@ -12465,14 +12467,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 /**
- * @extends {MDCFoundation<!MDCTextfieldAdapter>}
+ * @extends {MDCFoundation<!MDCTextFieldAdapter>}
  * @final
  */
 
-var MDCTextfieldFoundation = function (_MDCFoundation) {
-  _inherits(MDCTextfieldFoundation, _MDCFoundation);
+var MDCTextFieldFoundation = function (_MDCFoundation) {
+  _inherits(MDCTextFieldFoundation, _MDCFoundation);
 
-  _createClass(MDCTextfieldFoundation, null, [{
+  _createClass(MDCTextFieldFoundation, null, [{
     key: 'cssClasses',
 
     /** @return enum {string} */
@@ -12489,15 +12491,15 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
     }
 
     /**
-     * {@see MDCTextfieldAdapter} for typing information on parameters and return
+     * {@see MDCTextFieldAdapter} for typing information on parameters and return
      * types.
-     * @return {!MDCTextfieldAdapter}
+     * @return {!MDCTextFieldAdapter}
      */
 
   }, {
     key: 'defaultAdapter',
     get: function get() {
-      return (/** @type {!MDCTextfieldAdapter} */{
+      return (/** @type {!MDCTextFieldAdapter} */{
           addClass: function addClass() {},
           removeClass: function removeClass() {},
           addClassToLabel: function addClassToLabel() {},
@@ -12527,18 +12529,18 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
     }
 
     /**
-     * @param {!MDCTextfieldAdapter=} adapter
+     * @param {!MDCTextFieldAdapter=} adapter
      */
 
   }]);
 
-  function MDCTextfieldFoundation() {
-    var adapter = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : /** @type {!MDCTextfieldAdapter} */{};
+  function MDCTextFieldFoundation() {
+    var adapter = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : /** @type {!MDCTextFieldAdapter} */{};
 
-    _classCallCheck(this, MDCTextfieldFoundation);
+    _classCallCheck(this, MDCTextFieldFoundation);
 
     /** @private {boolean} */
-    var _this = _possibleConstructorReturn(this, (MDCTextfieldFoundation.__proto__ || Object.getPrototypeOf(MDCTextfieldFoundation)).call(this, _extends(MDCTextfieldFoundation.defaultAdapter, adapter)));
+    var _this = _possibleConstructorReturn(this, (MDCTextFieldFoundation.__proto__ || Object.getPrototypeOf(MDCTextFieldFoundation)).call(this, _extends(MDCTextFieldFoundation.defaultAdapter, adapter)));
 
     _this.isFocused_ = false;
     /** @private {boolean} */
@@ -12547,40 +12549,40 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
     _this.useCustomValidityChecking_ = false;
     /** @private {function(): undefined} */
     _this.inputFocusHandler_ = function () {
-      return _this.activateFocus_();
+      return _this.activateFocus();
     };
     /** @private {function(): undefined} */
     _this.inputBlurHandler_ = function () {
-      return _this.deactivateFocus_();
+      return _this.deactivateFocus();
     };
     /** @private {function(): undefined} */
     _this.inputInputHandler_ = function () {
-      return _this.autoCompleteFocus_();
+      return _this.autoCompleteFocus();
     };
     /** @private {function(!Event): undefined} */
     _this.setPointerXOffset_ = function (evt) {
-      return _this.setBottomLineTransformOrigin_(evt);
+      return _this.animateBottomLine(evt);
     };
     /** @private {function(!Event): undefined} */
     _this.textFieldInteractionHandler_ = function (evt) {
-      return _this.handleTextFieldInteraction_(evt);
+      return _this.handleTextFieldInteraction(evt);
     };
     /** @private {function(!Event): undefined} */
     _this.transitionEndHandler_ = function (evt) {
-      return _this.transitionEnd_(evt);
+      return _this.handleBottomLineAnimationEnd(evt);
     };
     return _this;
   }
 
-  _createClass(MDCTextfieldFoundation, [{
+  _createClass(MDCTextFieldFoundation, [{
     key: 'init',
     value: function init() {
       var _this2 = this;
 
-      this.adapter_.addClass(MDCTextfieldFoundation.cssClasses.UPGRADED);
+      this.adapter_.addClass(MDCTextFieldFoundation.cssClasses.UPGRADED);
       // Ensure label does not collide with any pre-filled value.
       if (this.getNativeInput_().value) {
-        this.adapter_.addClassToLabel(MDCTextfieldFoundation.cssClasses.LABEL_FLOAT_ABOVE);
+        this.adapter_.addClassToLabel(MDCTextFieldFoundation.cssClasses.LABEL_FLOAT_ABOVE);
       }
 
       this.adapter_.registerInputInteractionHandler('focus', this.inputFocusHandler_);
@@ -12599,7 +12601,7 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
     value: function destroy() {
       var _this3 = this;
 
-      this.adapter_.removeClass(MDCTextfieldFoundation.cssClasses.UPGRADED);
+      this.adapter_.removeClass(MDCTextFieldFoundation.cssClasses.UPGRADED);
       this.adapter_.deregisterInputInteractionHandler('focus', this.inputFocusHandler_);
       this.adapter_.deregisterInputInteractionHandler('blur', this.inputBlurHandler_);
       this.adapter_.deregisterInputInteractionHandler('input', this.inputInputHandler_);
@@ -12613,14 +12615,13 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
     }
 
     /**
-     * Handles all user interactions with the Textfield.
+     * Handles all user interactions with the Text Field.
      * @param {!Event} evt
-     * @private
      */
 
   }, {
-    key: 'handleTextFieldInteraction_',
-    value: function handleTextFieldInteraction_(evt) {
+    key: 'handleTextFieldInteraction',
+    value: function handleTextFieldInteraction(evt) {
       if (this.adapter_.getNativeInput().disabled) {
         return;
       }
@@ -12629,7 +12630,7 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
 
       var target = evt.target,
           type = evt.type;
-      var TEXT_FIELD_ICON = MDCTextfieldFoundation.cssClasses.TEXT_FIELD_ICON;
+      var TEXT_FIELD_ICON = MDCTextFieldFoundation.cssClasses.TEXT_FIELD_ICON;
 
       var targetIsIcon = this.adapter_.eventTargetHasClass(target, TEXT_FIELD_ICON);
       var eventTriggersNotification = type === 'click' || evt.key === 'Enter' || evt.keyCode === 13;
@@ -12641,17 +12642,16 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
 
     /**
      * Activates the text field focus state.
-     * @private
      */
 
   }, {
-    key: 'activateFocus_',
-    value: function activateFocus_() {
-      var _MDCTextfieldFoundati = MDCTextfieldFoundation.cssClasses,
-          BOTTOM_LINE_ACTIVE = _MDCTextfieldFoundati.BOTTOM_LINE_ACTIVE,
-          FOCUSED = _MDCTextfieldFoundati.FOCUSED,
-          LABEL_FLOAT_ABOVE = _MDCTextfieldFoundati.LABEL_FLOAT_ABOVE,
-          LABEL_SHAKE = _MDCTextfieldFoundati.LABEL_SHAKE;
+    key: 'activateFocus',
+    value: function activateFocus() {
+      var _MDCTextFieldFoundati = MDCTextFieldFoundation.cssClasses,
+          BOTTOM_LINE_ACTIVE = _MDCTextFieldFoundati.BOTTOM_LINE_ACTIVE,
+          FOCUSED = _MDCTextFieldFoundati.FOCUSED,
+          LABEL_FLOAT_ABOVE = _MDCTextFieldFoundati.LABEL_FLOAT_ABOVE,
+          LABEL_SHAKE = _MDCTextFieldFoundati.LABEL_SHAKE;
 
       this.adapter_.addClass(FOCUSED);
       this.adapter_.addClassToBottomLine(BOTTOM_LINE_ACTIVE);
@@ -12662,15 +12662,13 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
     }
 
     /**
-     * Sets the transform-origin of the bottom line, causing it to animate out
-     * from the user's click location.
+     * Animates the bottom line out from the user's click location.
      * @param {!Event} evt
-     * @private
      */
 
   }, {
-    key: 'setBottomLineTransformOrigin_',
-    value: function setBottomLineTransformOrigin_(evt) {
+    key: 'animateBottomLine',
+    value: function animateBottomLine(evt) {
       var targetClientRect = evt.target.getBoundingClientRect();
       var evtCoords = { x: evt.clientX, y: evt.clientY };
       var normalizedX = evtCoords.x - targetClientRect.left;
@@ -12680,16 +12678,15 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
     }
 
     /**
-     * Activates the Textfield's focus state in cases when the input value
+     * Activates the Text Field's focus state in cases when the input value
      * changes without user input (e.g. programatically).
-     * @private
      */
 
   }, {
-    key: 'autoCompleteFocus_',
-    value: function autoCompleteFocus_() {
+    key: 'autoCompleteFocus',
+    value: function autoCompleteFocus() {
       if (!this.receivedUserInput_) {
-        this.activateFocus_();
+        this.activateFocus();
       }
     }
 
@@ -12701,22 +12698,21 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
   }, {
     key: 'showHelptext_',
     value: function showHelptext_() {
-      var ARIA_HIDDEN = MDCTextfieldFoundation.strings.ARIA_HIDDEN;
+      var ARIA_HIDDEN = MDCTextFieldFoundation.strings.ARIA_HIDDEN;
 
       this.adapter_.removeHelptextAttr(ARIA_HIDDEN);
     }
 
     /**
-     * Fires when animation transition ends, performing actions that must wait
-     * for animations to finish.
+     * Executes when the bottom line's transition animation ends, performing
+     * actions that must wait for animations to finish.
      * @param {!Event} evt
-     * @private
      */
 
   }, {
-    key: 'transitionEnd_',
-    value: function transitionEnd_(evt) {
-      var BOTTOM_LINE_ACTIVE = MDCTextfieldFoundation.cssClasses.BOTTOM_LINE_ACTIVE;
+    key: 'handleBottomLineAnimationEnd',
+    value: function handleBottomLineAnimationEnd(evt) {
+      var BOTTOM_LINE_ACTIVE = MDCTextFieldFoundation.cssClasses.BOTTOM_LINE_ACTIVE;
 
       // We need to wait for the bottom line to be entirely transparent
       // before removing the class. If we do not, we see the line start to
@@ -12728,17 +12724,16 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
     }
 
     /**
-     * Deactives the Textfield's focus state.
-     * @private
+     * Deactives the Text Field's focus state.
      */
 
   }, {
-    key: 'deactivateFocus_',
-    value: function deactivateFocus_() {
-      var _MDCTextfieldFoundati2 = MDCTextfieldFoundation.cssClasses,
-          FOCUSED = _MDCTextfieldFoundati2.FOCUSED,
-          LABEL_FLOAT_ABOVE = _MDCTextfieldFoundati2.LABEL_FLOAT_ABOVE,
-          LABEL_SHAKE = _MDCTextfieldFoundati2.LABEL_SHAKE;
+    key: 'deactivateFocus',
+    value: function deactivateFocus() {
+      var _MDCTextFieldFoundati2 = MDCTextFieldFoundation.cssClasses,
+          FOCUSED = _MDCTextFieldFoundati2.FOCUSED,
+          LABEL_FLOAT_ABOVE = _MDCTextFieldFoundati2.LABEL_FLOAT_ABOVE,
+          LABEL_SHAKE = _MDCTextFieldFoundati2.LABEL_SHAKE;
 
       var input = this.getNativeInput_();
 
@@ -12757,7 +12752,7 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
     }
 
     /**
-     * Updates the Textfield's valid state based on the supplied validity.
+     * Updates the Text Field's valid state based on the supplied validity.
      * @param {boolean} isValid
      * @private
      */
@@ -12765,9 +12760,9 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
   }, {
     key: 'changeValidity_',
     value: function changeValidity_(isValid) {
-      var _MDCTextfieldFoundati3 = MDCTextfieldFoundation.cssClasses,
-          INVALID = _MDCTextfieldFoundati3.INVALID,
-          LABEL_SHAKE = _MDCTextfieldFoundati3.LABEL_SHAKE;
+      var _MDCTextFieldFoundati3 = MDCTextFieldFoundation.cssClasses,
+          INVALID = _MDCTextFieldFoundati3.INVALID,
+          LABEL_SHAKE = _MDCTextFieldFoundati3.LABEL_SHAKE;
 
       if (isValid) {
         this.adapter_.removeClass(INVALID);
@@ -12779,18 +12774,18 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
     }
 
     /**
-     * Updates the state of the Textfield's help text based on validity and
-     * the Textfield's options.
+     * Updates the state of the Text Field's help text based on validity and
+     * the Text Field's options.
      * @param {boolean} isValid
      */
 
   }, {
     key: 'updateHelptext_',
     value: function updateHelptext_(isValid) {
-      var _MDCTextfieldFoundati4 = MDCTextfieldFoundation.cssClasses,
-          HELPTEXT_PERSISTENT = _MDCTextfieldFoundati4.HELPTEXT_PERSISTENT,
-          HELPTEXT_VALIDATION_MSG = _MDCTextfieldFoundati4.HELPTEXT_VALIDATION_MSG;
-      var ROLE = MDCTextfieldFoundation.strings.ROLE;
+      var _MDCTextFieldFoundati4 = MDCTextFieldFoundation.cssClasses,
+          HELPTEXT_PERSISTENT = _MDCTextFieldFoundati4.HELPTEXT_PERSISTENT,
+          HELPTEXT_VALIDATION_MSG = _MDCTextFieldFoundati4.HELPTEXT_VALIDATION_MSG;
+      var ROLE = MDCTextFieldFoundation.strings.ROLE;
 
       var helptextIsPersistent = this.adapter_.helptextHasClass(HELPTEXT_PERSISTENT);
       var helptextIsValidationMsg = this.adapter_.helptextHasClass(HELPTEXT_VALIDATION_MSG);
@@ -12816,13 +12811,13 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
   }, {
     key: 'hideHelptext_',
     value: function hideHelptext_() {
-      var ARIA_HIDDEN = MDCTextfieldFoundation.strings.ARIA_HIDDEN;
+      var ARIA_HIDDEN = MDCTextFieldFoundation.strings.ARIA_HIDDEN;
 
       this.adapter_.setHelptextAttr(ARIA_HIDDEN, 'true');
     }
 
     /**
-     * @return {boolean} True if the Textfield input fails validity checks.
+     * @return {boolean} True if the Text Field input fails validity checks.
      * @private
      */
 
@@ -12834,7 +12829,7 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
     }
 
     /**
-     * @return {boolean} True if the Textfield is disabled.
+     * @return {boolean} True if the Text Field is disabled.
      */
 
   }, {
@@ -12844,13 +12839,13 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
     }
 
     /**
-     * @param {boolean} disabled Sets the textfield disabled or enabled.
+     * @param {boolean} disabled Sets the text-field disabled or enabled.
      */
 
   }, {
     key: 'setDisabled',
     value: function setDisabled(disabled) {
-      var DISABLED = MDCTextfieldFoundation.cssClasses.DISABLED;
+      var DISABLED = MDCTextFieldFoundation.cssClasses.DISABLED;
 
       this.getNativeInput_().disabled = disabled;
       if (disabled) {
@@ -12883,7 +12878,7 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
     }
 
     /**
-     * @param {boolean} isValid Sets the validity state of the Textfield.
+     * @param {boolean} isValid Sets the validity state of the Text Field.
      */
 
   }, {
@@ -12894,10 +12889,10 @@ var MDCTextfieldFoundation = function (_MDCFoundation) {
     }
   }]);
 
-  return MDCTextfieldFoundation;
+  return MDCTextFieldFoundation;
 }(__WEBPACK_IMPORTED_MODULE_0__material_base_foundation__["a" /* default */]);
 
-/* harmony default export */ __webpack_exports__["a"] = (MDCTextfieldFoundation);
+/* harmony default export */ __webpack_exports__["a"] = (MDCTextFieldFoundation);
 
 /***/ }),
 /* 80 */
