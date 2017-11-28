@@ -26,6 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'autoprefixer-rails', '>= 6.5'
   spec.add_runtime_dependency 'sass', '>= 3.4'
 
+  spec.add_development_dependency 'json', '>= 2.0'
   spec.add_development_dependency 'railties', '>= 5.0'
   spec.add_development_dependency 'rspec', '>= 3.5'
   spec.add_development_dependency 'sprockets-rails', '>= 3.0'
