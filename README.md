@@ -3,6 +3,8 @@
 [![Gem Version](https://badge.fury.io/rb/material_components_web-sass.svg)](http://badge.fury.io/rb/material_components_web-sass)
 [![Build Status](https://travis-ci.org/rubysamurai/material_components_web-sass.svg?branch=master)](https://travis-ci.org/rubysamurai/material_components_web-sass)
 
+> **Not maintained:** MDC-Web doesn't play well with the asset pipeline (can't import specific JavaScript components) and Ruby Sass often can't compile newest releases. Please use [Webpacker](https://github.com/rails/webpacker) instead to include MDC-Web in your Rails projects.
+
 > **Note:** MDC-Web is still in early stage of development. For production environment it is recommended to use previous version of MDC-Web called [Material Design Lite for Sass](https://github.com/rubysamurai/material_design_lite-sass) 
 
 Material Components for the web ([MDC-Web](https://github.com/material-components/material-components-web/)) enable a reliable development workflow to build web projects based on [Material Design](https://www.material.io/) system.
